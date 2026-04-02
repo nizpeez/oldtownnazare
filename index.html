@@ -30,9 +30,9 @@
     :root {
       --primary: #1e293b;
       --secondary: #3b82f6;
-      --accent: #ef4444;
-      --accent-hover: #dc2626;
-      --bg: #f8fafc;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --bg: #f0f9ff;
       --surface: #ffffff;
       --text: #334155;
       --text-light: #64748b;
@@ -43,7 +43,8 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(180deg, #bae6fd 0%, #e0f2fe 10%, #f0f9ff 28%, #f8fafc 55%);
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.5;
       padding-bottom: 90px;
@@ -77,8 +78,9 @@
     }
     .header-section { margin-bottom: 24px; text-align: center; }
     .tag { display: inline-block; background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-    h1 { font-size: 2rem; font-weight: 900; line-height: 1.15; color: var(--primary); margin-bottom: 12px; letter-spacing: -0.5px; }
+    h1 { font-size: 1.9rem; font-weight: 900; line-height: 1.2; color: var(--primary); margin-bottom: 4px; letter-spacing: -0.5px; }
     h1 em { font-style: normal; color: var(--secondary); }
+    h1 small { display: block; font-size: 0.55em; font-weight: 600; color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
     .subtitle { font-size: 1rem; color: var(--text-light); font-weight: 500; }
     .hero-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .hero-chip { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 20px; padding: 5px 12px; font-size: 0.85rem; font-weight: 700; color: var(--primary); }
@@ -358,7 +360,7 @@
     <img src="logo.png" alt="Old Town Nazaré Logo" class="site-logo">
     <div class="header-section">
       <span class="tag" data-i18n="tag">Reserva Direta Sem Taxas</span>
-      <h1 data-i18n="h1Title">Apartamento T1+1 · <em>Nazaré</em></h1>
+      <h1 data-i18n="h1Title"><small>Centro Histórico · Nazaré</small>Apartamento T1+1</h1>
     </div>
   </div>
 
@@ -530,7 +532,7 @@
     <div class="ota-card">
       <h3 data-i18n="otaTitle">Também disponível em</h3>
       <div class="ota-buttons">
-        <a href="https://www.booking.com/hotel/pt/old-town-nazare.pt-pt.html" target="_blank" class="btn-booking">
+        <a href="https://www.booking.com/hotel/pt/old-town-nazare.pt-pt.html?aid=304142&label=gen173rf-10CAsouwFCD29sZC10b3duLW5hemFyZUgfWANouwGIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGiAhFuaXpwZWV6LmdpdGh1Yi5pb6gCAbgCpNC7zgbAAgHSAiRkYjg5ZDhjMi02NzM4LTRmZDctYjViMi05ODRjMzE2Zjk3ZmbYAgHgAgE&sid=1134297009ec27375a666e0ecffa0aec" target="_blank" class="btn-booking">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6 2C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h3v-2H6V4h7v4h5v10h-3v2h3c1.1 0 2-.9 2-2V7l-5-5H6zm8 1.5L17.5 7H14V3.5z"/></svg>
           <span data-i18n="otaBooking">Ver no Booking.com</span>
         </a>
@@ -672,7 +674,7 @@
       const translations = {
         pt: {
           tag: "Reserva Direta Sem Taxas",
-          h1Title: "Apartamento T1+1 · <em>Nazaré</em>",
+          h1Title: "<small>Centro Histórico · Nazaré</small>Apartamento T1+1",
           subtitle: "Conforto total, check-in presencial e as melhores férias à tua espera.",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Quarto", gallery4: "4/8 - Cozinha", gallery5: "5/8 - WC", gallery6: "6/8 - WC", gallery7: "7/8 - Varanda", gallery8: "8/8 - Varanda",
           featBeach: "150m da Praia", featCheckin: "Check-in Presencial", featWifi: "Wi-Fi Gratuito", featKitchen: "Cozinha Equipada", featSofa: "Sofá-cama (T1+1)", featBalcony: "Varanda com Vista",
@@ -719,7 +721,7 @@
         },
         en: {
           tag: "Direct Booking No Fees",
-          h1Title: "Apartment T1+1 · <em>Nazaré</em>",
+          h1Title: "<small>Old Town · Nazaré</small>Apartment T1+1",
           subtitle: "Total comfort, in-person check-in, and the best beach holidays awaiting you.",
           gallery1: "1/8 - Apartment", gallery2: "2/8 - Living Room", gallery3: "3/8 - Bedroom", gallery4: "4/8 - Kitchen", gallery5: "5/8 - Bathroom", gallery6: "6/8 - Bathroom", gallery7: "7/8 - Balcony", gallery8: "8/8 - Balcony",
           featBeach: "150m from Beach", featCheckin: "In-Person Check-in", featWifi: "Free Wi-Fi", featKitchen: "Full Kitchen", featSofa: "Sofa Bed (T1+1)", featBalcony: "Balcony with View",
@@ -766,7 +768,7 @@
         },
         fr: {
           tag: "Réservation Directe Sans Frais",
-          h1Title: "Appartement T1+1 · <em>Nazaré</em>",
+          h1Title: "<small>Centre Historique · Nazaré</small>Appartement T1+1",
           subtitle: "Confort total, accueil en personne et les meilleures vacances à la plage.",
           gallery1: "1/8 - Appartement", gallery2: "2/8 - Salon", gallery3: "3/8 - Chambre", gallery4: "4/8 - Cuisine", gallery5: "5/8 - SdB", gallery6: "6/8 - SdB", gallery7: "7/8 - Balcon", gallery8: "8/8 - Balcon",
           featBeach: "À 150m de la Plage", featCheckin: "Accueil en Personne", featWifi: "Wi-Fi Gratuit", featKitchen: "Cuisine Équipée", featSofa: "Canapé-lit (T1+1)", featBalcony: "Balcon avec Vue",
@@ -813,7 +815,7 @@
         },
         de: {
           tag: "Direktbuchung Ohne Gebühren",
-          h1Title: "Apartment T1+1 · <em>Nazaré</em>",
+          h1Title: "<small>Altstadt · Nazaré</small>Apartment T1+1",
           subtitle: "Voller Komfort, persönlicher Check-in und der beste Strandurlaub erwartet Sie.",
           gallery1: "1/8 - Wohnung", gallery2: "2/8 - Wohnzimmer", gallery3: "3/8 - Schlafzimmer", gallery4: "4/8 - Küche", gallery5: "5/8 - Bad", gallery6: "6/8 - Bad", gallery7: "7/8 - Balkon", gallery8: "8/8 - Balkon",
           featBeach: "150m zum Strand", featCheckin: "Persönlicher Check-in", featWifi: "Kostenloses WLAN", featKitchen: "Ausgestattete Küche", featSofa: "Schlafsofa (T1+1)", featBalcony: "Balkon mit Aussicht",
@@ -860,7 +862,7 @@
         },
         es: {
           tag: "Reserva Directa Sin Comisiones",
-          h1Title: "Apartamento T1+1 · <em>Nazaré</em>",
+          h1Title: "<small>Casco Histórico · Nazaré</small>Apartamento T1+1",
           subtitle: "Comodidad total, check-in presencial y las mejores vacaciones en la playa te esperan.",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Habitación", gallery4: "4/8 - Cocina", gallery5: "5/8 - Baño", gallery6: "6/8 - Baño", gallery7: "7/8 - Balcón", gallery8: "8/8 - Balcón",
           featBeach: "A 150m de la playa", featCheckin: "Check-in Presencial", featWifi: "Wi-Fi Gratuito", featKitchen: "Cocina Equipada", featSofa: "Sofá cama (T1+1)", featBalcony: "Balcón con Vistas",
