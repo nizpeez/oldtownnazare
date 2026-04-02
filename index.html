@@ -265,6 +265,11 @@
     }
 
     .modal-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .form-control.invalid { border-color: #ef4444 !important; background: #fff5f5; }
+    .form-control.valid { border-color: #22c55e !important; }
+    .field-error { color: #ef4444; font-size: 0.82rem; font-weight: 600; margin-top: 5px; display: none; }
+    .field-error.visible { display: block; }
+    .optional-label { font-size: 0.8rem; font-weight: 500; color: var(--text-light); margin-left: 6px; }
 
     /* --- BOOKING SUCCESS --- */
     .booking-success { text-align: center; padding: 24px 0; }
@@ -581,15 +586,18 @@
           <label style="display:block; margin:30px 0 16px; font-weight:800; font-size: 1.15rem; color:var(--primary);" data-i18n="modalDetailsLabel">2. Os teus detalhes</label>
 
           <div class="form-group">
-            <input id="guestName" name="name" type="text" class="form-control" placeholder="O teu Nome" required />
+            <input id="guestName" name="name" type="text" class="form-control" placeholder="O teu Nome" autocomplete="name" />
+            <span class="field-error" id="errName"></span>
           </div>
 
           <div class="form-group">
-            <input id="guestPhone" name="phone" type="tel" class="form-control" placeholder="Telemóvel (ex: +351 91...)" required />
+            <input id="guestPhone" name="phone" type="tel" class="form-control" placeholder="Telemóvel (ex: +351 91...)" autocomplete="tel" />
+            <span class="field-error" id="errPhone"></span>
           </div>
 
           <div class="form-group">
-            <input id="guestEmail" name="email" type="email" class="form-control" placeholder="O teu Email" required />
+            <input id="guestEmail" name="email" type="text" class="form-control" placeholder="O teu Email (opcional)" autocomplete="email" />
+            <span class="field-error" id="errEmail"></span>
           </div>
 
           <div class="modal-buttons" style="gap:8px;">
@@ -712,7 +720,8 @@
           modalTotalFor: "Orçamento para ", modalNights: "noites", modalCleaningNote: "\u2713 Preço final, taxa de limpeza incluída",
           discountBadge: "-5% desconto direto",
           modalDetailsLabel: "2. Os teus detalhes",
-          phName: "O teu Nome", phPhone: "Telemóvel (ex: +351 91...)", phEmail: "O teu Email",
+          phName: "O teu Nome", phPhone: "Telemóvel (ex: +351 91...)", phEmail: "O teu Email (opcional)",
+          errName: "Nome inválido. Mínimo 2 caracteres.", errPhone: "Número inválido. Mínimo 6 dígitos.", errEmail: "Email inválido. Verifica o formato.",
           btnWhatsapp: "Reservar por WhatsApp", btnEmail: "Pedir por Email",
           alertDate: "Por favor, seleciona as datas de check-in e check-out.",
           alertMin: "A estadia mínima é de 2 noites. Obrigado!",
@@ -759,7 +768,8 @@
           modalTotalFor: "Quote for ", modalNights: "nights", modalCleaningNote: "\u2713 Final price, cleaning fee included",
           discountBadge: "-5% direct booking discount",
           modalDetailsLabel: "2. Your Contact Details",
-          phName: "Your Full Name", phPhone: "Phone number (inc. country code)", phEmail: "Your Email Address",
+          phName: "Your Full Name", phPhone: "Phone number (inc. country code)", phEmail: "Your Email (optional)",
+          errName: "Invalid name. Minimum 2 characters.", errPhone: "Invalid number. Minimum 6 digits.", errEmail: "Invalid email. Please check the format.",
           btnWhatsapp: "Book via WhatsApp", btnEmail: "Request via Email",
           alertDate: "Please fully select your check-in and check-out dates.",
           alertMin: "Minimum stay is 2 nights. Thank you!",
@@ -806,7 +816,8 @@
           modalTotalFor: "Devis pour ", modalNights: "nuits", modalCleaningNote: "\u2713 Prix final, ménage inclus",
           discountBadge: "-5% réservation directe",
           modalDetailsLabel: "2. Vos Coordonnées",
-          phName: "Votre Nom Complet", phPhone: "Téléphone (+33...)", phEmail: "Votre Email",
+          phName: "Votre Nom Complet", phPhone: "Téléphone (+33...)", phEmail: "Votre Email (facultatif)",
+          errName: "Nom invalide. Minimum 2 caractères.", errPhone: "Numéro invalide. Minimum 6 chiffres.", errEmail: "Email invalide. Vérifiez le format.",
           btnWhatsapp: "Réserver par WhatsApp", btnEmail: "Demande par Email",
           alertDate: "Veuillez sélectionner vos dates d'arrivée et de départ.",
           alertMin: "Le séjour minimum est de 2 nuits. Merci!",
@@ -853,7 +864,8 @@
           modalTotalFor: "Preis für ", modalNights: "nächte", modalCleaningNote: "\u2713 Endpreis inkl. Reinigung",
           discountBadge: "-5% Direktbuchungsrabatt",
           modalDetailsLabel: "2. Ihre Kontaktdaten",
-          phName: "Ihr Name", phPhone: "Telefonnummer (+49...)", phEmail: "Ihre E-Mail",
+          phName: "Ihr Name", phPhone: "Telefonnummer (+49...)", phEmail: "Ihre E-Mail (optional)",
+          errName: "Ungültiger Name. Mindestens 2 Zeichen.", errPhone: "Ungültige Nummer. Mindestens 6 Ziffern.", errEmail: "Ungültige E-Mail. Bitte Format prüfen.",
           btnWhatsapp: "Buchen über WhatsApp", btnEmail: "Anfrage per E-Mail",
           alertDate: "Bitte wählen Sie Ihr An- und Abreisedatum.",
           alertMin: "Der Mindestaufenthalt beträgt 2 Nächte. Danke!",
@@ -900,7 +912,8 @@
           modalTotalFor: "Presupuesto para ", modalNights: "noches", modalCleaningNote: "\u2713 Precio final, limpieza incluida",
           discountBadge: "-5% descuento directo",
           modalDetailsLabel: "2. Tus Datos",
-          phName: "Tu Nombre Completo", phPhone: "Teléfono (+34...)", phEmail: "Tu Correo",
+          phName: "Tu Nombre Completo", phPhone: "Teléfono (+34...)", phEmail: "Tu Correo (opcional)",
+          errName: "Nombre inválido. Mínimo 2 caracteres.", errPhone: "Número inválido. Mínimo 6 dígitos.", errEmail: "Email inválido. Verifica el formato.",
           btnWhatsapp: "Reservar por WhatsApp", btnEmail: "Solicitar por Email",
           alertDate: "Por favor, selecciona tus fechas de llegada y salida.",
           alertMin: "La estancia mínima es de 2 noches. ¡Gracias!",
@@ -1144,15 +1157,58 @@
         }
       }
 
+      // ── VALIDATION ──────────────────────────────────────────
+      const nameInput  = document.getElementById('guestName');
+      const phoneInput = document.getElementById('guestPhone');
+      const emailInput = document.getElementById('guestEmail');
+
+      function isValidName(v) {
+        const s = v.trim();
+        return s.length >= 2 && /[\p{L}]/u.test(s);
+      }
+      function isValidPhone(v) {
+        return v.replace(/\D/g, '').length >= 6;
+      }
+      function isValidEmail(v) {
+        if (!v.trim()) return true; // optional
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+      }
+
+      function showFieldError(input, errEl, msg) {
+        input.classList.add('invalid'); input.classList.remove('valid');
+        errEl.textContent = msg; errEl.classList.add('visible');
+      }
+      function clearFieldError(input, errEl) {
+        input.classList.remove('invalid'); input.classList.add('valid');
+        errEl.classList.remove('visible');
+      }
+
+      function validateAll() {
+        const d = translations[currentLang];
+        let ok = true;
+        if (!isValidName(nameInput.value))  { showFieldError(nameInput,  document.getElementById('errName'),  d.errName);  ok = false; }
+        else                                 { clearFieldError(nameInput,  document.getElementById('errName')); }
+        if (!isValidPhone(phoneInput.value)) { showFieldError(phoneInput, document.getElementById('errPhone'), d.errPhone); ok = false; }
+        else                                 { clearFieldError(phoneInput, document.getElementById('errPhone')); }
+        if (!isValidEmail(emailInput.value)) { showFieldError(emailInput, document.getElementById('errEmail'), d.errEmail); ok = false; }
+        else                                 { clearFieldError(emailInput, document.getElementById('errEmail')); }
+        return ok;
+      }
+
+      [nameInput, phoneInput, emailInput].forEach(input => {
+        input.addEventListener('blur', () => validateAll());
+        input.addEventListener('input', () => {
+          if (input.classList.contains('invalid')) validateAll();
+        });
+      });
+      // ────────────────────────────────────────────────────────
+
       function getBookingDetails() {
         if (!selectedDates || selectedDates.length !== 2) {
           alert(translations[currentLang].alertDate);
           return null;
         }
-        if(!bookingForm.checkValidity()) {
-          bookingForm.reportValidity();
-          return null;
-        }
+        if (!validateAll()) return null;
 
         const formData = new FormData(bookingForm);
         const checkIn = flatpickrInstance.formatDate(selectedDates[0], 'd/m/Y');
@@ -1179,6 +1235,7 @@
         if(currentLang === 'de') { intro = msgIntroDE; pRes = "\uD83D\uDCC5 *Buchungsdetails:*"; pCheckIn = "\u27A1\uFE0F Anreise"; pCheckOut = "\u2B05\uFE0F Abreise"; pNights="\uD83C\uDF19 Nächte"; pPrice="\uD83D\uDCB6 Gesamtpreis"; pPer = "\uD83D\uDC64 *Meine Daten:*"; pName="Name"; pEmail="\uD83D\uDCE7 E-Mail"; pPhone="\uD83D\uDCDE Telefon"; waitMsg="Ich warte auf Ihre Bestätigung. Danke! \u2728"; }
         if(currentLang === 'es') { intro = msgIntroES; pRes = "\uD83D\uDCC5 *Detalles de Reserva:*"; pCheckIn = "\u27A1\uFE0F Llegada"; pCheckOut = "\u2B05\uFE0F Salida"; pNights="\uD83C\uDF19 Noches"; pPrice="\uD83D\uDCB6 Precio Total"; pPer = "\uD83D\uDC64 *Mis Datos:*"; pName="Nombre"; pEmail="\uD83D\uDCE7 Correo"; pPhone="\uD83D\uDCDE Teléfono"; waitMsg="Espero su confirmación. ¡Gracias! \u2728"; }
 
+        const emailLine = email && email.trim() ? `• *${pEmail}:* ${email}\n` : '';
         const message = `${intro}
 
 ${pRes}
@@ -1190,8 +1247,7 @@ ${pRes}
 ${pPer}
 • *${pName}:* ${name}
 • *${pPhone}:* ${phone}
-• *${pEmail}:* ${email}
-
+${emailLine}
 ${waitMsg}`;
 
         return { message, email, name };
