@@ -179,6 +179,22 @@
     .host-info h3 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
     .host-info p { font-size: 0.9rem; color: var(--text-light); line-height: 1.4; }
 
+    /* --- AMENITIES --- */
+    .amenities-card { background: var(--surface); border-radius: var(--radius); padding: 22px; margin-bottom: 24px; border: 1px solid #e2e8f0; }
+    .amenities-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+    .amenities-summary { font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px; font-weight: 500; }
+    .amenities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .amenity-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; color: var(--text); }
+    .amenity-item .a-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+    /* --- OTA LINKS --- */
+    .ota-card { background: var(--surface); border-radius: var(--radius); padding: 22px; margin-bottom: 24px; border: 1px solid #e2e8f0; }
+    .ota-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; }
+    .ota-buttons { display: flex; flex-direction: column; gap: 10px; }
+    .btn-booking { background: #003580; color: white; border-radius: 12px; padding: 14px 18px; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 10px; text-decoration: none; justify-content: center; }
+    .btn-airbnb { background: #FF5A5F; color: white; border-radius: 12px; padding: 14px 18px; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 10px; text-decoration: none; justify-content: center; opacity: 0.6; cursor: default; }
+    .btn-airbnb .soon-badge { background: rgba(255,255,255,0.25); font-size: 0.75rem; padding: 2px 8px; border-radius: 20px; margin-left: 4px; }
+
     /* --- LOCATION --- */
     .location-card { background: var(--surface); border: 1px solid #e2e8f0; border-radius: var(--radius); padding: 22px; margin-bottom: 24px; }
     .location-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 16px; font-weight: 800; }
@@ -418,6 +434,40 @@
     </div>
 
 
+    <!-- AMENITIES -->
+    <div class="amenities-card">
+      <h3 data-i18n="amenTitle">O Apartamento</h3>
+      <p class="amenities-summary" data-i18n="amenSummary">45 m² · 1 quarto · até 3 hóspedes</p>
+      <div class="amenities-grid">
+        <div class="amenity-item"><span class="a-icon">🛏️</span> <span data-i18n="amen1">Cama de casal</span></div>
+        <div class="amenity-item"><span class="a-icon">🛋️</span> <span data-i18n="amen2">Sofá-cama</span></div>
+        <div class="amenity-item"><span class="a-icon">🍳</span> <span data-i18n="amen3">Cozinha privativa</span></div>
+        <div class="amenity-item"><span class="a-icon">🚿</span> <span data-i18n="amen4">Casa de banho privativa</span></div>
+        <div class="amenity-item"><span class="a-icon">🏖️</span> <span data-i18n="amen5">Varanda</span></div>
+        <div class="amenity-item"><span class="a-icon">📺</span> <span data-i18n="amen6">TV c/ canais cabo</span></div>
+        <div class="amenity-item"><span class="a-icon">📶</span> <span data-i18n="amen7">Wi-Fi gratuito</span></div>
+        <div class="amenity-item"><span class="a-icon">🌡️</span> <span data-i18n="amen8">Aquecimento</span></div>
+        <div class="amenity-item"><span class="a-icon">👗</span> <span data-i18n="amen9">Máquina de lavar</span></div>
+        <div class="amenity-item"><span class="a-icon">💨</span> <span data-i18n="amen10">Secador de cabelo</span></div>
+      </div>
+    </div>
+
+    <!-- OTA LINKS -->
+    <div class="ota-card">
+      <h3 data-i18n="otaTitle">Também disponível em</h3>
+      <div class="ota-buttons">
+        <a href="https://www.booking.com/hotel/pt/old-town-nazare.pt-pt.html" target="_blank" class="btn-booking">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6 2C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h3v-2H6V4h7v4h5v10h-3v2h3c1.1 0 2-.9 2-2V7l-5-5H6zm8 1.5L17.5 7H14V3.5z"/></svg>
+          <span data-i18n="otaBooking">Ver no Booking.com</span>
+        </a>
+        <span class="btn-airbnb">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          <span data-i18n="otaAirbnb">Airbnb</span>
+          <span class="soon-badge" data-i18n="otaSoon">em breve</span>
+        </span>
+      </div>
+    </div>
+
     <!-- LOCATION CARD -->
     <div class="location-card">
       <h3 data-i18n="locTitle">Localização Central na Nazaré</h3>
@@ -448,7 +498,7 @@
           <span class="loc-dist" data-i18n="locD5">3 min</span>
         </li>
       </ul>
-      <a href="https://goo.gl/maps/PLACEHOLDER" target="_blank" class="btn btn-outline location-btn" data-i18n="btnGoogleMaps">
+      <a href="https://www.google.com/maps/place/R.+da+Liberdade+76,+2450-236+Nazar%C3%A9/@39.600133,-9.0717709,303m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd18a9bbcc5be363:0x642f4d61f7ecf3d3!8m2!3d39.600133!4d-9.0711272!16s%2Fg%2F11c5qbdf8l" target="_blank" class="btn btn-outline location-btn" data-i18n="btnGoogleMaps">
         Ver no Google Maps
       </a>
     </div>
@@ -602,6 +652,11 @@
           ruleCancellation: "Cancelamento gratuito até 7 dias antes do check-in",
           hostName: "Anfitriã: Ana",
           hostBio: "Sou a Ana, adoro receber hóspedes na Nazaré. Conheço a zona como ninguém e estou sempre disponível para ajudar com dicas e recomendações.",
+          amenTitle: "O Apartamento", amenSummary: "45 m² · 1 quarto · até 3 hóspedes",
+          amen1: "Cama de casal", amen2: "Sofá-cama", amen3: "Cozinha privativa", amen4: "Casa de banho privativa",
+          amen5: "Varanda", amen6: "TV c/ canais cabo", amen7: "Wi-Fi gratuito", amen8: "Aquecimento",
+          amen9: "Máquina de lavar", amen10: "Secador de cabelo",
+          otaTitle: "Também disponível em", otaBooking: "Ver no Booking.com", otaAirbnb: "Airbnb", otaSoon: "em breve",
           locTitle: "Localização Central na Nazaré",
           loc1Title: "Praia", locD1: "150m",
           loc2Title: "Supermercado", locD2: "2 min",
@@ -644,6 +699,11 @@
           ruleCancellation: "Free cancellation up to 7 days before check-in",
           hostName: "Host: Ana",
           hostBio: "I'm Ana, I love welcoming guests to Nazaré. I know the area like the back of my hand and I'm always happy to help with tips and recommendations.",
+          amenTitle: "The Apartment", amenSummary: "45 m² · 1 bedroom · up to 3 guests",
+          amen1: "Double bed", amen2: "Sofa bed", amen3: "Private kitchen", amen4: "Private bathroom",
+          amen5: "Balcony", amen6: "Flat-screen TV", amen7: "Free Wi-Fi", amen8: "Heating",
+          amen9: "Washing machine", amen10: "Hair dryer",
+          otaTitle: "Also available on", otaBooking: "View on Booking.com", otaAirbnb: "Airbnb", otaSoon: "coming soon",
           locTitle: "Central Location in Nazaré",
           loc1Title: "Beach", locD1: "150m",
           loc2Title: "Supermarket", locD2: "2 min",
@@ -686,6 +746,11 @@
           ruleCancellation: "Annulation gratuite jusqu'à 7 jours avant l'arrivée",
           hostName: "Hôte : Ana",
           hostBio: "Je suis Ana, j'adore accueillir les voyageurs à Nazaré. Je connais la région parfaitement et je suis toujours disponible pour des conseils.",
+          amenTitle: "L'Appartement", amenSummary: "45 m² · 1 chambre · jusqu'à 3 pers.",
+          amen1: "Lit double", amen2: "Canapé-lit", amen3: "Cuisine privée", amen4: "Salle de bain privée",
+          amen5: "Balcon", amen6: "TV écran plat", amen7: "Wi-Fi gratuit", amen8: "Chauffage",
+          amen9: "Machine à laver", amen10: "Sèche-cheveux",
+          otaTitle: "Aussi disponible sur", otaBooking: "Voir sur Booking.com", otaAirbnb: "Airbnb", otaSoon: "bientôt",
           locTitle: "Emplacement Central à Nazaré",
           loc1Title: "Plage", locD1: "150m",
           loc2Title: "Supermarché", locD2: "2 min",
@@ -728,6 +793,11 @@
           ruleCancellation: "Kostenlose Stornierung bis 7 Tage vor Check-in",
           hostName: "Gastgeberin: Ana",
           hostBio: "Ich bin Ana und begrüße Gäste in Nazaré mit Freude. Ich kenne die Gegend bestens und helfe gerne mit Tipps und Empfehlungen.",
+          amenTitle: "Die Wohnung", amenSummary: "45 m² · 1 Schlafzimmer · bis 3 Gäste",
+          amen1: "Doppelbett", amen2: "Schlafsofa", amen3: "Eigene Küche", amen4: "Eigenes Bad",
+          amen5: "Balkon", amen6: "Flachbild-TV", amen7: "Kostenloses WLAN", amen8: "Heizung",
+          amen9: "Waschmaschine", amen10: "Haartrockner",
+          otaTitle: "Auch buchbar auf", otaBooking: "Auf Booking.com ansehen", otaAirbnb: "Airbnb", otaSoon: "demnächst",
           locTitle: "Zentrale Lage in Nazaré",
           loc1Title: "Strand", locD1: "150m",
           loc2Title: "Supermarkt", locD2: "2 Min.",
@@ -770,6 +840,11 @@
           ruleCancellation: "Cancelación gratuita hasta 7 días antes de la llegada",
           hostName: "Anfitriona: Ana",
           hostBio: "Soy Ana, me encanta recibir huéspedes en Nazaré. Conozco la zona a la perfección y siempre estoy disponible para ayudar.",
+          amenTitle: "El Apartamento", amenSummary: "45 m² · 1 dormitorio · hasta 3 huéspedes",
+          amen1: "Cama de matrimonio", amen2: "Sofá cama", amen3: "Cocina privada", amen4: "Baño privado",
+          amen5: "Balcón", amen6: "TV pantalla plana", amen7: "Wi-Fi gratuito", amen8: "Calefacción",
+          amen9: "Lavadora", amen10: "Secador de pelo",
+          otaTitle: "También disponible en", otaBooking: "Ver en Booking.com", otaAirbnb: "Airbnb", otaSoon: "próximamente",
           locTitle: "Ubicación Central en Nazaré",
           loc1Title: "Playa", locD1: "150m",
           loc2Title: "Supermercado", locD2: "2 min",
