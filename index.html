@@ -107,7 +107,7 @@
     /* --- GALLERY WRAPPER & ARROWS --- */
     .gallery-wrapper { position: relative; }
     .gallery-arrow {
-      display: none;
+      display: flex; align-items: center; justify-content: center;
       position: absolute; top: 50%; transform: translateY(-50%);
       z-index: 10; background: rgba(255,255,255,0.92); border: none;
       width: 40px; height: 40px; border-radius: 50%;
@@ -120,7 +120,6 @@
     .gallery-arrow.next { right: 10px; }
 
     @media (min-width: 600px) {
-      .gallery-arrow { display: flex; align-items: center; justify-content: center; }
       .gallery-wrapper {
         max-width: 500px;
         margin: 0 auto;
