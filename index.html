@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Apartamento Nazaré | Reserva Direta</title>
+  <meta name="description" content="Apartamento T1 na Nazaré, a 150m da praia. Reserve direto sem taxas." />
+
+  <!-- Open Graph / WhatsApp / Facebook preview -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://nazarehome.pt/" />
+  <meta property="og:title"       content="Apartamento na Nazaré · 150m da Praia · Reserva Direta" />
+  <meta property="og:description" content="T1 com check-in automático, vista de mar e sem taxas de plataforma. Reserve direto e poupe." />
+  <meta property="og:image"       content="https://nazarehome.pt/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="pt_PT" />
+
+  <!-- Twitter / iMessage fallback -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Apartamento na Nazaré · 150m da Praia · Reserva Direta" />
+  <meta name="twitter:description" content="T1 com check-in automático, vista de mar e sem taxas de plataforma. Reserve direto e poupe." />
+  <meta name="twitter:image"       content="https://nazarehome.pt/og-image.jpg" />
+
+  <!-- Flatpickr CSS & Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
+
+  <style>
+    :root {
+      --primary: #1e293b;
+      --secondary: #3b82f6;
+      --accent: #ef4444;
+      --accent-hover: #dc2626;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-light: #64748b;
+      --radius: 16px;
+      --shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 90px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { width: 92%; max-width: 500px; margin: 0 auto; padding: 20px 0; }
+
+    .lang-selector {
+      display: flex; justify-content: space-between; flex-wrap: nowrap; gap: 6px; padding: 12px 2%;
+      max-width: 500px; margin: 0 auto; overflow-x: auto; scrollbar-width: none;
+    }
+    .lang-selector::-webkit-scrollbar { display: none; }
+    .lang-btn {
+      background: var(--surface); border: 1px solid #e2e8f0; border-radius: 16px;
+      padding: 6px 8px; font-size: 1.25rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: all 0.2s;
+      flex: 1 1 auto;
+    }
+    .lang-btn.active {
+      border-color: var(--secondary); background: #eff6ff;
+    }
+    .lang-btn span { font-size: 0.85rem; font-weight: 800; color: var(--primary); }
+
+    /* --- TYPOGRAPHY & HEADER --- */
+    .site-logo {
+      width: 200px;
+      height: auto;
+      margin: 0 auto 16px;
+      display: block;
+    }
+    .header-section { margin-bottom: 24px; text-align: center; }
+    .tag { display: inline-block; background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    h1 { font-size: 1.7rem; font-weight: 900; line-height: 1.2; color: var(--primary); margin-bottom: 10px; letter-spacing: -0.5px; }
+    .subtitle { font-size: 1.1rem; color: var(--text-light); font-weight: 500; }
+
+    /* --- GALLERY --- */
+    .gallery-slider {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px;
+      padding-bottom: 10px; margin: 0 -4%; padding-left: 4%; padding-right: 4%;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .gallery-slider::-webkit-scrollbar { display: none; }
+    .gallery-item { flex: 0 0 92%; scroll-snap-align: center; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); position: relative; }
+    .gallery-item img { width: 100%; height: 360px; object-fit: cover; display: block; }
+    .gallery-badge { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.6); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; backdrop-filter: blur(4px); }
+
+    /* --- GALLERY DOTS --- */
+    .gallery-dots {
+      display: flex; justify-content: center; gap: 8px; padding: 12px 0;
+    }
+    .gallery-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1;
+      border: none; padding: 0; cursor: pointer; transition: all 0.3s;
+    }
+    .gallery-dot.active { background: var(--secondary); width: 24px; border-radius: 4px; }
+
+    /* --- BUTTONS --- */
+    .btn {
+      display: flex; justify-content: center; align-items: center; gap: 8px;
+      width: 100%; padding: 18px 20px; border-radius: 14px; border: none;
+      font-size: 1.15rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+      cursor: pointer; transition: transform 0.1s, box-shadow 0.2s; text-decoration: none;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-cta {
+      background: #059669; color: white;
+      border-radius: 100px; padding: 16px 20px; font-size: 1.05rem;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+    }
+    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+    .btn-whatsapp { background: #25D366; color: white; }
+
+    /* --- HIGHLIGHTS --- */
+    .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+    .feature { background: var(--surface); padding: 14px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); font-weight: 700; font-size: 0.95rem; color: var(--primary); border: 1px solid #e2e8f0; }
+    .feature svg { width: 24px; height: 24px; fill: var(--secondary); }
+
+    /* --- REVIEWS --- */
+    .review-author {
+      display: flex; align-items: center; gap: 6px; margin-top: 8px;
+      font-size: 0.8rem; color: var(--text-light); font-weight: 600;
+    }
+    .airbnb-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px;
+      padding: 6px 12px; font-size: 0.85rem; font-weight: 700; color: #e11d48;
+    }
+
+    /* --- PRICING --- */
+    .pricing-card { background: var(--surface); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); margin-bottom: 24px; border: 2px solid #e2e8f0; }
+    .pricing-card h2 { font-size: 1.2rem; margin-bottom: 16px; color: var(--primary); text-transform: uppercase; font-weight: 800;}
+    .price-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #cbd5e1; font-size: 1.05rem; font-weight: 500;}
+    .price-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .price { color: var(--accent); font-weight: 800; font-size: 1.2rem; }
+
+    /* --- HOUSE RULES --- */
+    .rules-card {
+      background: var(--surface); border-radius: var(--radius); padding: 22px;
+      margin-bottom: 24px; border: 1px solid #e2e8f0;
+    }
+    .rules-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px; }
+    .rule-item {
+      display: flex; align-items: center; gap: 10px; padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; font-weight: 600;
+    }
+    .rule-item:last-child { border-bottom: none; }
+    .rule-item .rule-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    /* --- HOST --- */
+    .host-card {
+      background: var(--surface); border-radius: var(--radius); padding: 22px;
+      margin-bottom: 24px; border: 1px solid #e2e8f0;
+      display: flex; gap: 16px; align-items: center;
+    }
+    .host-avatar {
+      width: 64px; height: 64px; border-radius: 50%; background: #e2e8f0;
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+    .host-info h3 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+    .host-info p { font-size: 0.9rem; color: var(--text-light); line-height: 1.4; }
+
+    /* --- LOCATION SIMPLE --- */
+    .location-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius); padding: 24px; margin-bottom: 30px; }
+    .location-card h3 { color: #166534; font-size: 1.25rem; margin-bottom: 8px; font-weight: 900; letter-spacing: -0.5px;}
+    .location-intro { color: #15803d; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; font-weight: 500;}
+    .loc-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.95rem; line-height: 1.4;}
+    .loc-item svg { width: 22px; height: 22px; fill: #22c55e; flex-shrink: 0; margin-top: 2px;}
+    .loc-item strong { display: block; font-weight: 800; color: #14532d; }
+    .loc-item small { display: block; margin-top: 2px; color: #15803d; opacity: 0.9; font-size: 0.85rem; font-weight: 500;}
+    .location-btn { margin-top: 10px; border-color: #22c55e; color: #166534; background: white; font-weight: 700; width: 100%;}
+    .location-btn:hover { background: #dcfce7; }
+
+    /* --- STICKY CTA --- */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 16px 20px; background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px); border-top: 1px solid #e2e8f0;
+      box-shadow: 0 -10px 20px rgba(0,0,0,0.05); z-index: 100;
+      display: flex; justify-content: center;
+    }
+    .sticky-cta-content { width: 100%; max-width: 500px; }
+
+    /* --- MODAL --- */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 1000; align-items: flex-end; }
+    .modal.open { display: flex; }
+    .modal-content { background: var(--surface); width: 100%; max-width: 500px; margin: 0 auto; border-radius: 24px 24px 0 0; padding: 24px; animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 -20px 40px rgba(0,0,0,0.2);}
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+    .close-modal { position: absolute; right: 20px; top: 16px; font-size: 28px; background: none; border: none; cursor: pointer; color: #94a3b8; line-height: 1; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 800; font-size: 1.25rem; color: var(--primary); }
+    .form-control { width: 100%; padding: 16px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.25rem; background: #f8fafc; font-weight: 500; transition: border-color 0.2s;}
+    .form-control:focus { outline: none; border-color: var(--secondary); background: white; }
+    .total-box { background: #eff6ff; border: 2px solid #bfdbfe; padding: 20px; border-radius: 12px; margin: 24px 0; text-align: center; }
+    .total-box p { color: #1e3a8a; font-weight: 600; font-size: 1.15rem; margin-bottom: 8px; }
+    .price-display { font-size: 2rem; font-weight: 900; color: var(--secondary); line-height: 1; }
+
+    .price-original {
+      text-decoration: line-through; color: #94a3b8; font-weight: 500;
+      font-size: 1.25rem; display: inline-block;
+    }
+    .price-discounted { color: #16a34a; font-size: 2rem !important; }
+    .discount-badge {
+      display: inline-block; background: #dcfce7; color: #166534;
+      font-size: 0.75rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 6px; margin-top: 6px;
+    }
+
+    .modal-buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+
+    /* --- BOOKING SUCCESS --- */
+    .booking-success { text-align: center; padding: 24px 0; }
+    .booking-success .success-icon { font-size: 3rem; margin-bottom: 12px; }
+    .booking-success h3 { color: #166534; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+    .booking-success p { color: var(--text-light); font-size: 0.95rem; }
+
+    /* --- CUSTOM FLATPICKR THEME OVERRIDES --- */
+    .flatpickr-calendar {
+      font-family: inherit !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: var(--radius) !important;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+      padding: 12px !important;
+      width: 100% !important;
+    }
+    .flatpickr-days, .dayContainer {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+    .flatpickr-months .flatpickr-month { height: 52px; }
+    .flatpickr-current-month { padding-top: 12px; font-size: 1.15rem; }
+    .flatpickr-current-month .flatpickr-monthDropdown-months { font-weight: 800; color: var(--primary); }
+    .flatpickr-prev-month, .flatpickr-next-month { padding: 10px 14px !important; }
+    .flatpickr-prev-month svg, .flatpickr-next-month svg { width: 16px; height: 16px; }
+    .flatpickr-weekdays { height: 36px; }
+    span.flatpickr-weekday { font-weight: 800; color: var(--text-light); font-size: 0.8rem; }
+    .flatpickr-day {
+      border-radius: 8px !important;
+      font-weight: 600;
+      color: var(--text);
+      height: 56px !important;
+      line-height: normal !important;
+      max-width: calc(100% / 7) !important;
+      flex-basis: calc(100% / 7) !important;
+      font-size: 0.95rem;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 2px !important;
+    }
+    .day-price {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: #94a3b8;
+      line-height: 1;
+      letter-spacing: -0.2px;
+    }
+    .flatpickr-day.selected .day-price,
+    .flatpickr-day.startRange .day-price,
+    .flatpickr-day.endRange .day-price {
+      color: rgba(255,255,255,0.85) !important;
+    }
+    .flatpickr-day.inRange .day-price {
+      color: var(--secondary) !important;
+    }
+    .flatpickr-day.flatpickr-disabled .day-price {
+      color: #e2e8f0 !important;
+    }
+    .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected.inRange, .flatpickr-day.startRange.inRange, .flatpickr-day.endRange.inRange, .flatpickr-day.selected:focus, .flatpickr-day.startRange:focus, .flatpickr-day.endRange:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.startRange.nextMonthDay, .flatpickr-day.endRange.nextMonthDay {
+      background: var(--secondary) !important;
+      border-color: var(--secondary) !important;
+      color: white !important;
+    }
+    .flatpickr-day.inRange, .flatpickr-day.prevMonthDay.inRange, .flatpickr-day.nextMonthDay.inRange, .flatpickr-day.today.inRange, .flatpickr-day.prevMonthDay.today.inRange, .flatpickr-day.nextMonthDay.today.inRange, .flatpickr-day:hover, .flatpickr-day.prevMonthDay:hover, .flatpickr-day.nextMonthDay:hover, .flatpickr-day:focus, .flatpickr-day.prevMonthDay:focus, .flatpickr-day.nextMonthDay:focus {
+      background: #eff6ff !important;
+      border-color: #eff6ff !important;
+    }
+    .flatpickr-day.inRange {
+      box-shadow: -5px 0 0 #eff6ff, 5px 0 0 #eff6ff !important;
+    }
+    .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover {
+      color: #cbd5e1 !important;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LANGUAGE SELECTOR -->
+  <div class="lang-selector">
+    <button class="lang-btn active" data-lang="pt">&#x1F1F5;&#x1F1F9; <span>PT</span></button>
+    <button class="lang-btn" data-lang="en">&#x1F1EC;&#x1F1E7; <span>EN</span></button>
+    <button class="lang-btn" data-lang="fr">&#x1F1EB;&#x1F1F7; <span>FR</span></button>
+    <button class="lang-btn" data-lang="de">&#x1F1E9;&#x1F1EA; <span>DE</span></button>
+    <button class="lang-btn" data-lang="es">&#x1F1EA;&#x1F1F8; <span>ES</span></button>
+  </div>
+
+  <!-- HEADER / VALUE PROP -->
+  <div class="container" style="padding-top: 0; padding-bottom: 0;">
+    <img src="logo.png" alt="Old Town Nazaré Logo" class="site-logo">
+    <div class="header-section">
+      <span class="tag" data-i18n="tag">Reserva Direta Sem Taxas</span>
+      <h1 data-i18n="h1Title">Apartamento T1 na Nazaré, a 150m da praia, ideal para casal (máx. 3 hóspedes).</h1>
+    </div>
+  </div>
+
+  <!-- GALLERY IS THE HERO -->
+  <div class="gallery-slider" id="gallerySlider">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Sala de Estar">
+      <span class="gallery-badge" data-i18n="gallery1">1/5 - Sala</span>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Quarto">
+      <span class="gallery-badge" data-i18n="gallery2">2/5 - Quarto</span>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&q=80" alt="Cozinha">
+      <span class="gallery-badge" data-i18n="gallery3">3/5 - Cozinha</span>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" alt="Casa de Banho">
+      <span class="gallery-badge" data-i18n="gallery4">4/5 - WC</span>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1510166089176-b57564a5b7b9?w=800&q=80" alt="Varanda e Refeições">
+      <span class="gallery-badge" data-i18n="gallery5">5/5 - Varanda</span>
+    </div>
+  </div>
+
+  <!-- GALLERY DOTS -->
+  <div class="gallery-dots" id="galleryDots">
+    <button class="gallery-dot active" data-index="0"></button>
+    <button class="gallery-dot" data-index="1"></button>
+    <button class="gallery-dot" data-index="2"></button>
+    <button class="gallery-dot" data-index="3"></button>
+    <button class="gallery-dot" data-index="4"></button>
+  </div>
+
+  <div class="container">
+
+    <!-- HIGH IMPACT FEATURES -->
+    <div class="highlights">
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span data-i18n="featBeach">150m da Praia</span>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M21 10h-8.35C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H13l2 2 2-2 2 2 4-4.04L21 10zM7 15c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>
+        <span data-i18n="featCheckin">Check-in Automático</span>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+        <span data-i18n="featWifi">Internet Fibra 500MB</span>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V7h-2v2z"/></svg>
+        <span data-i18n="featClean">Limpeza Premium</span>
+      </div>
+    </div>
+
+
+    <!-- PRICING -->
+    <div class="pricing-card">
+      <h2 data-i18n="priceTitle">Tarifas por Noite</h2>
+      <div class="price-row">
+        <span data-i18n="priceLow">Baixa Época (Out - Mai)</span>
+        <span class="price">59€ – 69€ <span style="font-size:0.8rem;color:#94a3b8;font-weight:500;" data-i18n="night">/noite</span></span>
+      </div>
+      <div class="price-row">
+        <span data-i18n="priceMid">Média Época (Jun e Set)</span>
+        <span class="price">79€ – 99€ <span style="font-size:0.8rem;color:#94a3b8;font-weight:500;" data-i18n="night">/noite</span></span>
+      </div>
+      <div class="price-row">
+        <span data-i18n="priceHigh">Alta Época (Jul e Ago)</span>
+        <span class="price">99€ – 129€ <span style="font-size:0.8rem;color:#94a3b8;font-weight:500;" data-i18n="night">/noite</span></span>
+      </div>
+    </div>
+
+    <!-- HOUSE RULES -->
+    <div class="rules-card">
+      <h3 data-i18n="rulesTitle">Regras da Casa</h3>
+      <div class="rule-item"><span class="rule-icon">&#x1F550;</span> <span data-i18n="ruleCheckin">Check-in: 15:00 — Check-out: 11:00</span></div>
+      <div class="rule-item"><span class="rule-icon">&#x1F319;</span> <span data-i18n="ruleMinStay">Estadia mínima: 2 noites</span></div>
+      <div class="rule-item"><span class="rule-icon">&#x1F465;</span> <span data-i18n="ruleMaxGuests">Máximo 3 hóspedes</span></div>
+      <div class="rule-item"><span class="rule-icon">&#x1F6AD;</span> <span data-i18n="ruleNoSmoking">Não é permitido fumar no interior</span></div>
+      <div class="rule-item"><span class="rule-icon">&#x1F4CB;</span> <span data-i18n="ruleCancellation">Cancelamento gratuito até 7 dias antes do check-in</span></div>
+    </div>
+
+
+    <!-- LOCATION CARD -->
+    <div class="location-card">
+      <h3 data-i18n="locTitle">Localização Central na Nazaré</h3>
+      <p class="location-intro" data-i18n="locIntro">Fique numa zona prática e central, com praia, restaurantes, supermercado e serviços essenciais a curta distância a pé.</p>
+
+      <div class="loc-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/></svg>
+        <span><strong data-i18n="loc1Title">2 minutos a pé (150m) da praia</strong></span>
+      </div>
+
+      <div class="loc-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span>
+          <strong data-i18n="loc2Title">Supermercado e comércio local por perto</strong>
+          <small data-i18n="loc2Sub">ideal para compras rápidas e essenciais do dia a dia</small>
+        </span>
+      </div>
+
+      <div class="loc-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C8.13 2 5 5.13 5 9c0 5.25 6.99 13 6.99 13S19 14.25 19 9c0-3.87-3.13-7-7.01-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1-.01 5z"/></svg>
+        <span>
+          <strong data-i18n="loc3Title">Restaurantes, cafés e pastelarias a poucos minutos</strong>
+          <small data-i18n="loc3Sub">perfeito para refeições, pequeno-almoço ou fim de tarde</small>
+        </span>
+      </div>
+
+      <div class="loc-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2V5a2 2 0 0 0-2-2zm0 16H5V8h14v11z"/></svg>
+        <span><strong data-i18n="loc4Title">2 minutos do Mercado Municipal</strong></span>
+      </div>
+
+      <div class="loc-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-9 9c0 1.95.62 3.76 1.69 5.24L3 22l5.93-1.56A8.96 8.96 0 0 0 12 20a9 9 0 1 0 0-18zm4.13 12.38c-.18.5-1.06.95-1.46 1.01-.37.06-.83.09-1.34-.07-.31-.1-.72-.23-1.24-.45-2.18-.94-3.6-3.13-3.71-3.28-.11-.15-.89-1.18-.89-2.25s.56-1.59.76-1.81c.2-.22.43-.28.57-.28.14 0 .29 0 .42.01.13.01.31-.05.49.39.18.45.62 1.54.67 1.65.06.11.09.24.02.39-.07.15-.11.24-.22.37-.11.13-.23.29-.33.39-.11.11-.22.23-.1.46.11.22.5.82 1.08 1.33.74.66 1.36.86 1.58.95.22.09.35.08.48-.05.13-.13.56-.65.71-.87.15-.22.3-.18.5-.11.2.07 1.29.61 1.51.72.22.11.37.17.42.27.05.09.05.54-.13 1.04z"/></svg>
+        <span>
+          <strong data-i18n="loc5Title">Táxis e acessos fáceis nas proximidades</strong>
+          <small data-i18n="loc5Sub">uma opção prática para deslocações locais</small>
+        </span>
+      </div>
+
+      <div class="loc-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 8h-1V6a5 5 0 0 0-10 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-9-2a3 3 0 0 1 6 0v2h-6V6zm3 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+        <span><strong data-i18n="loc6Title">Farmácia e serviços essenciais por perto</strong></span>
+      </div>
+
+      <div style="margin-top:20px; padding-top:16px; border-top:1px dashed #bbf7d0;">
+        <p style="font-weight:800; color:#166534; margin-bottom:8px; font-size:1rem;" data-i18n="locDistTitle">Distâncias a pé:</p>
+        <ul style="list-style:none; font-size:0.95rem; color:#15803d; font-weight:600;">
+          <li style="margin-bottom:6px;">&#x1F3D6;&#xFE0F; <span data-i18n="locD1">Praia — 150m</span></li>
+          <li style="margin-bottom:6px;">&#x1F6D2; <span data-i18n="locD2">Mercado — 2 min</span></li>
+          <li style="margin-bottom:6px;">&#x1F37D;&#xFE0F; <span data-i18n="locD3">Restaurantes — 2 a 5 min</span></li>
+        </ul>
+      </div>
+
+      <a href="https://goo.gl/maps/PLACEHOLDER" target="_blank" class="btn btn-outline location-btn" data-i18n="btnGoogleMaps">
+        Ver no Google Maps
+      </a>
+    </div>
+
+  </div>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta">
+    <div class="sticky-cta-content">
+      <button class="btn btn-cta" data-open-booking="true" data-i18n="ctaSticky">Reservar com 5% Desconto</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE RESERVA -->
+  <div id="bookingModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal" aria-label="Fechar">&times;</button>
+      <h2 style="font-size:1.5rem; margin-bottom:8px; color:var(--primary); font-weight:800;" data-i18n="modalTitle">Pedir Reserva</h2>
+      <p style="color:var(--text-light); margin-bottom: 20px; font-weight:500;" data-i18n="modalSubtitle">Sem compromisso. Respondemos rápido!</p>
+
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="dateRange" data-i18n="modalDatesLabel">1. Seleciona as Datas</label>
+          <input type="text" id="dateRange" class="form-control" placeholder="Toca aqui para o calendário..." required autocomplete="off" readonly />
+        </div>
+
+        <div class="total-box" id="priceSummary" style="background:#f1f5f9; border-color:#e2e8f0;">
+          <p style="color:#64748b; font-weight:500;" id="priceWaitingText" data-i18n="modalSelectDates">Seleciona as datas para ver o preço total.</p>
+          <div id="priceCalcBox" style="display:none;">
+            <p><span data-i18n="modalTotalFor">Orçamento para </span> <strong id="nightCount">0</strong> <span data-i18n="modalNights">noites</span></p>
+            <div id="originalPriceDisplay" class="price-original" style="display:none;"></div>
+            <div class="price-display price-discounted" id="totalPrice">0€</div>
+            <div id="discountBadge" class="discount-badge" style="display:none; font-size:0.95rem;" data-i18n="discountBadge">-5% desconto direto</div>
+            <p style="font-size:1rem; color:#166534; font-weight:700; margin-top:12px;" data-i18n="modalCleaningNote">&#10003; Preço final, taxa de limpeza incluída</p>
+          </div>
+        </div>
+
+        <div id="guestDetails" style="display:none;">
+          <label style="display:block; margin:30px 0 16px; font-weight:800; font-size: 1.15rem; color:var(--primary);" data-i18n="modalDetailsLabel">2. Os teus detalhes</label>
+
+          <div class="form-group">
+            <input id="guestName" name="name" type="text" class="form-control" placeholder="O teu Nome" required />
+          </div>
+
+          <div class="form-group">
+            <input id="guestPhone" name="phone" type="tel" class="form-control" placeholder="Telemóvel (ex: +351 91...)" required />
+          </div>
+
+          <div class="form-group">
+            <input id="guestEmail" name="email" type="email" class="form-control" placeholder="O teu Email" required />
+          </div>
+
+          <div class="modal-buttons" style="gap:8px;">
+            <button type="button" class="btn btn-whatsapp" id="btnWhatsapp" style="padding:16px; font-size:1.15rem; background:#16a34a; box-shadow:0 8px 16px rgba(22,163,74,0.3);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" style="margin-right:6px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+              <span data-i18n="btnWhatsapp">Reservar por WhatsApp</span>
+            </button>
+            <button type="button" class="btn" style="background:#f1f5f9; color:#64748b; font-size:1rem; padding:12px;" id="btnEmail" data-i18n="btnEmail">Pedir por Email</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- SUCCESS MESSAGE -->
+      <div id="bookingSuccess" class="booking-success" style="display:none;">
+        <div class="success-icon">&#10004;&#65039;</div>
+        <h3 data-i18n="successTitle">Pedido Enviado!</h3>
+        <p data-i18n="successText">A tua mensagem foi preparada. Respondemos em poucas horas!</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+  <script>
+    (function(){
+      // CONFIGURAÇÕES
+      const WHATSAPP_NUMBER = "351919282290";
+      const EMAIL_ADDRESS = "reservas@nazarehome.pt";
+      const PRICES = { low: 59, mid: 89, high: 119 };
+
+      // Preços reais por dia extraídos do Booking.com
+      const PRICE_MAP = (function() {
+        const m = {};
+        function fill(from, to, price) {
+          const d = new Date(from + 'T00:00:00');
+          const end = new Date(to + 'T00:00:00');
+          while (d <= end) {
+            const k = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+            m[k] = price;
+            d.setDate(d.getDate() + 1);
+          }
+        }
+        // Abril 2026
+        fill('2026-04-06','2026-04-09', 59);
+        fill('2026-04-12','2026-04-30', 59);
+        // Maio 2026
+        fill('2026-05-01','2026-05-31', 69);
+        // Junho 2026
+        fill('2026-06-01','2026-06-30', 89);
+        // Julho 2026
+        fill('2026-07-01','2026-07-03', 99);
+        fill('2026-07-11','2026-07-16', 99);
+        fill('2026-07-18','2026-07-30', 99);
+        // Agosto 2026
+        m['2026-08-07'] = 129;
+        m['2026-08-15'] = 129;
+        m['2026-08-16'] = 119;
+        fill('2026-08-22','2026-08-31', 119);
+        // Setembro 2026
+        fill('2026-09-01','2026-09-05', 99);
+        fill('2026-09-10','2026-09-11', 99);
+        fill('2026-09-12','2026-09-19', 89);
+        fill('2026-09-20','2026-09-30', 79);
+        // Outubro 2026
+        fill('2026-10-01','2026-10-31', 69);
+        // Novembro 2026
+        fill('2026-11-01','2026-11-29', 59);
+        // Dezembro 2026
+        fill('2026-12-01','2026-12-23', 59);
+        fill('2026-12-26','2026-12-30', 59);
+        m['2026-12-31'] = 150;
+        return m;
+      })();
+      const CLEANING_FEE = 30;
+      const DISCOUNT = 0.05;
+      const GOOGLE_SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSPKR1On4r-Qm0cmVBnM-CvxcCdLvsQHpXrzRsQZAVTjOFUyx_N4rmtj5Y7JBCBTgdPZA9NiaTRQBPb/pub?gid=1872870410&single=true&output=csv"; // Colar aqui o link CSV do Google Sheets
+
+      // DICIONÁRIO DE TRADUÇÕES
+      const translations = {
+        pt: {
+          tag: "Reserva Direta Sem Taxas",
+          h1Title: "Apartamento T1 na Nazaré, a 150m da praia. Ideal para casal ou família (até 3 hóspedes, inclui sofá-cama).",
+          subtitle: "Conforto total, check-in automático e as melhores férias à tua espera.",
+          gallery1: "1/5 - Sala", gallery2: "2/5 - Quarto", gallery3: "3/5 - Cozinha", gallery4: "4/5 - WC", gallery5: "5/5 - Varanda",
+          featBeach: "150m da Praia", featCheckin: "Check-in Automático", featWifi: "Internet Fibra 500MB", featClean: "Limpeza Premium",
+          reviewTitle: "O que dizem os hóspedes",
+          airbnbBadge: "no Airbnb (23 avaliações)",
+          rev1: '"Excelente localização, a 2 minutos da areia!"', rev2: '"Casa super limpa e check-in automático muito útil."', rev3: '"Tamanho ideal para casal. Adoramos a estadia."',
+          rev1Author: "Maria S. \u{1F1F5}\u{1F1F9} — Outubro 2024", rev2Author: "Thomas B. \u{1F1EB}\u{1F1F7} — Agosto 2024", rev3Author: "James & Lucy W. \u{1F1EC}\u{1F1E7} — Julho 2024",
+          priceTitle: "Tarifas por Noite",
+          priceLow: "Baixa Época (Out - Mai)", priceMid: "Média Época (Jun e Set)", priceHigh: "Alta Época (Jul e Ago)",
+          night: "/noite",
+          rulesTitle: "Regras da Casa",
+          ruleCheckin: "Check-in: 15:00 — Check-out: 11:00",
+          ruleMinStay: "Estadia mínima: 2 noites",
+          ruleMaxGuests: "Máximo 3 hóspedes",
+          ruleNoSmoking: "Não é permitido fumar no interior",
+          ruleCancellation: "Cancelamento gratuito até 7 dias antes do check-in",
+          hostName: "Anfitriã: Ana",
+          hostBio: "Sou a Ana, adoro receber hóspedes na Nazaré. Conheço a zona como ninguém e estou sempre disponível para ajudar com dicas e recomendações.",
+          locTitle: "Localização Central na Nazaré",
+          locIntro: "Fique numa zona prática e central, com praia, restaurantes, supermercado e serviços essenciais a curta distância a pé.",
+          loc1Title: "2 minutos a pé (150m) da praia",
+          loc2Title: "Supermercado e comércio local por perto", loc2Sub: "ideal para compras rápidas e essenciais do dia a dia",
+          loc3Title: "Restaurantes, cafés e pastelarias a poucos minutos", loc3Sub: "perfeito para refeições, pequeno-almoço ou fim de tarde",
+          loc4Title: "2 minutos do Mercado Municipal",
+          loc5Title: "Táxis e acessos fáceis nas proximidades", loc5Sub: "uma opção prática para deslocações locais",
+          loc6Title: "Farmácia e serviços essenciais por perto",
+          locDistTitle: "Distâncias a pé:", locD1: "Praia — 150m", locD2: "Mercado — 2 min", locD3: "Restaurantes — 2 a 5 min",
+          btnGoogleMaps: "Ver no Google Maps",
+          ctaSticky: "Reservar com 5% Desconto",
+          modalTitle: "Pedir Reserva", modalSubtitle: "Sem compromisso. Respondemos rápido!",
+          modalDatesLabel: "1. Seleciona as Datas", modalDatesPlaceholder: "Toca aqui para o calendário...",
+          modalSelectDates: "Seleciona as datas para ver o preço final.",
+          modalTotalFor: "Orçamento para ", modalNights: "noites", modalCleaningNote: "\u2713 Preço final, taxa de limpeza incluída",
+          discountBadge: "-5% desconto direto",
+          modalDetailsLabel: "2. Os teus detalhes",
+          phName: "O teu Nome", phPhone: "Telemóvel (ex: +351 91...)", phEmail: "O teu Email",
+          btnWhatsapp: "Reservar por WhatsApp", btnEmail: "Pedir por Email",
+          alertDate: "Por favor, seleciona as datas de check-in e check-out.",
+          alertMin: "A estadia mínima é de 2 noites. Obrigado!",
+          successTitle: "Pedido Enviado!",
+          successText: "A tua mensagem foi preparada. Respondemos em poucas horas!"
+        },
+        en: {
+          tag: "Direct Booking No Fees",
+          h1Title: "1-Bedroom Apartment in Nazaré, 150m from the beach. Ideal for couples or families (sofa bed, up to 4 guests).",
+          subtitle: "Total comfort, self check-in, and the best beach holidays awaiting you.",
+          gallery1: "1/5 - Living Room", gallery2: "2/5 - Bedroom", gallery3: "3/5 - Kitchen", gallery4: "4/5 - Bathroom", gallery5: "5/5 - Balcony",
+          featBeach: "150m from Beach", featCheckin: "Self Check-in", featWifi: "500MB Fiber Internet", featClean: "Premium Cleaning",
+          reviewTitle: "What our guests say",
+          airbnbBadge: "on Airbnb (23 reviews)",
+          rev1: '"Excellent location, 2 minutes from the sand!"', rev2: '"Super clean house and very useful self check-in."', rev3: '"Perfect size for a couple. We loved our stay."',
+          rev1Author: "Maria S. \u{1F1F5}\u{1F1F9} — October 2024", rev2Author: "Thomas B. \u{1F1EB}\u{1F1F7} — August 2024", rev3Author: "James & Lucy W. \u{1F1EC}\u{1F1E7} — July 2024",
+          priceTitle: "Nightly Rates",
+          priceLow: "Low Season (Oct - May)", priceMid: "Mid Season (Jun & Sep)", priceHigh: "High Season (Jul & Aug)",
+          night: "/night",
+          rulesTitle: "House Rules",
+          ruleCheckin: "Check-in: 3:00 PM — Check-out: 11:00 AM",
+          ruleMinStay: "Minimum stay: 2 nights",
+          ruleMaxGuests: "Maximum 4 guests",
+          ruleNoSmoking: "No smoking indoors",
+          ruleCancellation: "Free cancellation up to 7 days before check-in",
+          hostName: "Host: Ana",
+          hostBio: "I'm Ana, I love welcoming guests to Nazaré. I know the area like the back of my hand and I'm always happy to help with tips and recommendations.",
+          locTitle: "Central Location in Nazaré",
+          locIntro: "Stay in a practical and central area, with the beach, restaurants, supermarket and essential services within walking distance.",
+          loc1Title: "3-minute walk (150m) to the beach",
+          loc2Title: "Supermarket and local shops nearby", loc2Sub: "ideal for quick grocery runs and daily essentials",
+          loc3Title: "Restaurants, cafes and bakeries within minutes", loc3Sub: "perfect for meals, breakfast or late afternoon snacks",
+          loc4Title: "2 minutes to the Municipal Market",
+          loc5Title: "Taxis and easy access nearby", loc5Sub: "a practical option for local travel",
+          loc6Title: "Pharmacy and essential services close by",
+          locDistTitle: "Walking distances:", locD1: "Beach — 150m", locD2: "Market — 2 min", locD3: "Restaurants — 2 to 5 min",
+          btnGoogleMaps: "View on Google Maps",
+          ctaSticky: "Book Now (5% Off)",
+          modalTitle: "Request Booking", modalSubtitle: "No commitment. We reply incredibly fast!",
+          modalDatesLabel: "1. Select your Dates", modalDatesPlaceholder: "Tap here for calendar...",
+          modalSelectDates: "Select dates to see the final price.",
+          modalTotalFor: "Quote for ", modalNights: "nights", modalCleaningNote: "\u2713 Final price, cleaning fee included",
+          discountBadge: "-5% direct booking discount",
+          modalDetailsLabel: "2. Your Contact Details",
+          phName: "Your Full Name", phPhone: "Phone number (inc. country code)", phEmail: "Your Email Address",
+          btnWhatsapp: "Book via WhatsApp", btnEmail: "Request via Email",
+          alertDate: "Please fully select your check-in and check-out dates.",
+          alertMin: "Minimum stay is 2 nights. Thank you!",
+          successTitle: "Request Sent!",
+          successText: "Your message is ready. We'll reply within a few hours!"
+        },
+        fr: {
+          tag: "Réservation Directe Sans Frais",
+          h1Title: "Appartement T1 à Nazaré, à 150m de la plage. Idéal couple ou famille (canapé-lit, jusqu'à 4 pers).",
+          subtitle: "Confort total, arrivée autonome et les meilleures vacances à la plage.",
+          gallery1: "1/5 - Salon", gallery2: "2/5 - Chambre", gallery3: "3/5 - Cuisine", gallery4: "4/5 - SdB", gallery5: "5/5 - Balcon",
+          featBeach: "À 150m de la Plage", featCheckin: "Arrivée Autonome", featWifi: "Internet Fibre 500MB", featClean: "Ménage Premium",
+          reviewTitle: "Ce que disent nos clients",
+          airbnbBadge: "sur Airbnb (23 avis)",
+          rev1: '"Excellent emplacement, à 2 minutes du sable!"', rev2: '"Maison super propre et arrivée autonome très utile."', rev3: '"Taille idéale pour un couple. Nous avons adoré."',
+          rev1Author: "Maria S. \u{1F1F5}\u{1F1F9} — Octobre 2024", rev2Author: "Thomas B. \u{1F1EB}\u{1F1F7} — Août 2024", rev3Author: "James & Lucy W. \u{1F1EC}\u{1F1E7} — Juillet 2024",
+          priceTitle: "Tarifs par Nuit",
+          priceLow: "Basse Saison (Oct - Mai)", priceMid: "Moyenne Saison (Juin et Sep)", priceHigh: "Haute Saison (Juil et Août)",
+          night: "/nuit",
+          rulesTitle: "Règlement Intérieur",
+          ruleCheckin: "Arrivée : 15h00 — Départ : 11h00",
+          ruleMinStay: "Séjour minimum : 2 nuits",
+          ruleMaxGuests: "Maximum 4 personnes",
+          ruleNoSmoking: "Non-fumeur à l'intérieur",
+          ruleCancellation: "Annulation gratuite jusqu'à 7 jours avant l'arrivée",
+          hostName: "Hôte : Ana",
+          hostBio: "Je suis Ana, j'adore accueillir les voyageurs à Nazaré. Je connais la région parfaitement et je suis toujours disponible pour des conseils.",
+          locTitle: "Emplacement Central à Nazaré",
+          locIntro: "Séjournez dans un quartier pratique et central: plage, restaurants, supermarché et services essentiels à quelques pas.",
+          loc1Title: "2 minutes à pied (150m) de la plage",
+          loc2Title: "Supermarché et commerces à proximité", loc2Sub: "idéal pour les courses rapides",
+          loc3Title: "Restaurants, cafés et boulangeries à quelques minutes", loc3Sub: "parfait pour les repas ou le petit-déjeuner",
+          loc4Title: "À 2 minutes du Marché Municipal",
+          loc5Title: "Taxis et accès faciles à proximité", loc5Sub: "option pratique pour vos déplacements",
+          loc6Title: "Pharmacie et services essentiels à portée de main",
+          locDistTitle: "Distances à pied :", locD1: "Plage — 150m", locD2: "Marché — 2 min", locD3: "Restaurants — 2 à 5 min",
+          btnGoogleMaps: "Voir sur Google Maps",
+          ctaSticky: "Réservez (5% de réduction)",
+          modalTitle: "Demande de Réservation", modalSubtitle: "Sans engagement. Réponse très rapide!",
+          modalDatesLabel: "1. Choisissez vos Dates", modalDatesPlaceholder: "Touchez ici pour le calendrier...",
+          modalSelectDates: "Sélectionnez les dates pour voir le prix.",
+          modalTotalFor: "Devis pour ", modalNights: "nuits", modalCleaningNote: "\u2713 Prix final, ménage inclus",
+          discountBadge: "-5% réservation directe",
+          modalDetailsLabel: "2. Vos Coordonnées",
+          phName: "Votre Nom Complet", phPhone: "Téléphone (+33...)", phEmail: "Votre Email",
+          btnWhatsapp: "Réserver par WhatsApp", btnEmail: "Demande par Email",
+          alertDate: "Veuillez sélectionner vos dates d'arrivée et de départ.",
+          alertMin: "Le séjour minimum est de 2 nuits. Merci!",
+          successTitle: "Demande Envoyée !",
+          successText: "Votre message est prêt. Nous répondons en quelques heures !"
+        },
+        de: {
+          tag: "Direktbuchung Ohne Gebühren",
+          h1Title: "1-Zimmer-Wohnung in Nazaré, 150m vom Strand. Ideal für Paare/Familien (Schlafsofa, bis 4 Gäste).",
+          subtitle: "Voller Komfort, Self-Check-in und der beste Strandurlaub erwartet Sie.",
+          gallery1: "1/5 - Wohnzimmer", gallery2: "2/5 - Schlafzimmer", gallery3: "3/5 - Küche", gallery4: "4/5 - Bad", gallery5: "5/5 - Balkon",
+          featBeach: "150m zum Strand", featCheckin: "Self-Check-in", featWifi: "500MB Glasfaser", featClean: "Premium Reinigung",
+          reviewTitle: "Was unsere Gäste sagen",
+          airbnbBadge: "auf Airbnb (23 Bewertungen)",
+          rev1: '"Tolle Lage, 2 Minuten vom Sand entfernt!"', rev2: '"Super sauberes Haus und sehr nützlicher Self-Check-in."', rev3: '"Perfekte Größe für ein Paar. Wir haben es geliebt."',
+          rev1Author: "Maria S. \u{1F1F5}\u{1F1F9} — Oktober 2024", rev2Author: "Thomas B. \u{1F1EB}\u{1F1F7} — August 2024", rev3Author: "James & Lucy W. \u{1F1EC}\u{1F1E7} — Juli 2024",
+          priceTitle: "Preise pro Nacht",
+          priceLow: "Nebensaison (Okt - Mai)", priceMid: "Zwischensaison (Jun & Sep)", priceHigh: "Hochsaison (Jul & Aug)",
+          night: "/nacht",
+          rulesTitle: "Hausregeln",
+          ruleCheckin: "Check-in: 15:00 — Check-out: 11:00",
+          ruleMinStay: "Mindestaufenthalt: 2 Nächte",
+          ruleMaxGuests: "Maximal 4 Gäste",
+          ruleNoSmoking: "Rauchen im Innenbereich nicht gestattet",
+          ruleCancellation: "Kostenlose Stornierung bis 7 Tage vor Check-in",
+          hostName: "Gastgeberin: Ana",
+          hostBio: "Ich bin Ana und begrüße Gäste in Nazaré mit Freude. Ich kenne die Gegend bestens und helfe gerne mit Tipps und Empfehlungen.",
+          locTitle: "Zentrale Lage in Nazaré",
+          locIntro: "Wohnen Sie praktisch und zentral, mit Strand, Restaurants, Supermarkt und Co. in Gehweite.",
+          loc1Title: "3 Gehminuten (150m) zum Strand",
+          loc2Title: "Supermarkt gleich um die Ecke", loc2Sub: "ideal für den täglichen Einkauf",
+          loc3Title: "Restaurants und Cafés in wenigen Minuten erreichbar", loc3Sub: "perfekt für Frühstück oder Abendessen",
+          loc4Title: "2 Minuten zum städtischen Markt",
+          loc5Title: "Taxis und Transport in der Nähe", loc5Sub: "praktisch für alle Ausflüge",
+          loc6Title: "Apotheke und Dienste in der Nähe",
+          locDistTitle: "Entfernungen zu Fuß:", locD1: "Strand — 150m", locD2: "Markt — 2 Min.", locD3: "Restaurants — 2 bis 5 Min.",
+          btnGoogleMaps: "Auf Google Maps anzeigen",
+          ctaSticky: "Jetzt buchen (5% Rabatt)",
+          modalTitle: "Buchung Anfragen", modalSubtitle: "Unverbindlich. Wir antworten sehr schnell!",
+          modalDatesLabel: "1. Wählen Sie Ihre Daten", modalDatesPlaceholder: "Hier tippen für den Kalender...",
+          modalSelectDates: "Wählen Sie Daten, um den Preis zu sehen.",
+          modalTotalFor: "Preis für ", modalNights: "nächte", modalCleaningNote: "\u2713 Endpreis inkl. Reinigung",
+          discountBadge: "-5% Direktbuchungsrabatt",
+          modalDetailsLabel: "2. Ihre Kontaktdaten",
+          phName: "Ihr Name", phPhone: "Telefonnummer (+49...)", phEmail: "Ihre E-Mail",
+          btnWhatsapp: "Buchen über WhatsApp", btnEmail: "Anfrage per E-Mail",
+          alertDate: "Bitte wählen Sie Ihr An- und Abreisedatum.",
+          alertMin: "Der Mindestaufenthalt beträgt 2 Nächte. Danke!",
+          successTitle: "Anfrage Gesendet!",
+          successText: "Ihre Nachricht ist bereit. Wir antworten in wenigen Stunden!"
+        },
+        es: {
+          tag: "Reserva Directa Sin Comisiones",
+          h1Title: "Apto. en Nazaré, a 150m de la playa. Ideal pareja o familia (sofá cama, máx 4 pax).",
+          subtitle: "Comodidad total, check-in automático y las mejores vacaciones en la playa te esperan.",
+          gallery1: "1/5 - Sala", gallery2: "2/5 - Habitación", gallery3: "3/5 - Cocina", gallery4: "4/5 - Baño", gallery5: "5/5 - Balcón",
+          featBeach: "A 150m de la playa", featCheckin: "Check-in Automático", featWifi: "Internet Fibra 500MB", featClean: "Limpieza Premium",
+          reviewTitle: "Lo que dicen nuestros huéspedes",
+          airbnbBadge: "en Airbnb (23 evaluaciones)",
+          rev1: '"¡Excelente ubicación, a 2 minutos de la arena!"', rev2: '"Casa súper limpia y check-in automático muy útil."', rev3: '"Tamaño perfecto para una pareja. Nos encantó la estancia."',
+          rev1Author: "Maria S. \u{1F1F5}\u{1F1F9} — Octubre 2024", rev2Author: "Thomas B. \u{1F1EB}\u{1F1F7} — Agosto 2024", rev3Author: "James & Lucy W. \u{1F1EC}\u{1F1E7} — Julio 2024",
+          priceTitle: "Tarifas por Noche",
+          priceLow: "Temporada Baja (Oct - May)", priceMid: "Temporada Media (Jun y Sep)", priceHigh: "Temporada Alta (Jul y Ago)",
+          night: "/noche",
+          rulesTitle: "Reglas de la Casa",
+          ruleCheckin: "Check-in: 15:00 — Check-out: 11:00",
+          ruleMinStay: "Estancia mínima: 2 noches",
+          ruleMaxGuests: "Máximo 4 huéspedes",
+          ruleNoSmoking: "Prohibido fumar en el interior",
+          ruleCancellation: "Cancelación gratuita hasta 7 días antes de la llegada",
+          hostName: "Anfitriona: Ana",
+          hostBio: "Soy Ana, me encanta recibir huéspedes en Nazaré. Conozco la zona a la perfección y siempre estoy disponible para ayudar.",
+          locTitle: "Ubicación Central en Nazaré",
+          locIntro: "Alójate en una zona práctica y central, con playa, restaurantes, supermercado y servicios a poca distancia a pie.",
+          loc1Title: "A 2 minutos a pie (150m) de la playa",
+          loc2Title: "Supermercado y comercios locales cerca", loc2Sub: "ideal para compras rápidas del día a día",
+          loc3Title: "Restaurantes y cafeterías a pocos minutos", loc3Sub: "perfecto para comidas o desayuno",
+          loc4Title: "A 2 minutos del Mercado Municipal",
+          loc5Title: "Taxis y accesos fáciles cerca", loc5Sub: "una opción práctica para desplazamientos",
+          loc6Title: "Farmacia y servicios esenciales cerca",
+          locDistTitle: "Distancias a pie:", locD1: "Playa — 150m", locD2: "Mercado — 2 min", locD3: "Restaurantes — 2 a 5 min",
+          btnGoogleMaps: "Ver en Google Maps",
+          ctaSticky: "Reservar (5% Descuento)",
+          modalTitle: "Solicitar Reserva", modalSubtitle: "Sin compromiso. ¡Respondemos muy rápido!",
+          modalDatesLabel: "1. Selecciona tus Fechas", modalDatesPlaceholder: "Toca aquí para el calendario...",
+          modalSelectDates: "Selecciona fechas para ver el precio final.",
+          modalTotalFor: "Presupuesto para ", modalNights: "noches", modalCleaningNote: "\u2713 Precio final, limpieza incluida",
+          discountBadge: "-5% descuento directo",
+          modalDetailsLabel: "2. Tus Datos",
+          phName: "Tu Nombre Completo", phPhone: "Teléfono (+34...)", phEmail: "Tu Correo",
+          btnWhatsapp: "Reservar por WhatsApp", btnEmail: "Solicitar por Email",
+          alertDate: "Por favor, selecciona tus fechas de llegada y salida.",
+          alertMin: "La estancia mínima es de 2 noches. ¡Gracias!",
+          successTitle: "¡Solicitud Enviada!",
+          successText: "Tu mensaje está listo. ¡Te responderemos en unas horas!"
+        }
+      };
+
+      let currentLang = 'pt';
+
+      // Elements
+      const modal = document.getElementById('bookingModal');
+      const closeModalBtn = document.getElementById('closeModal');
+      const dateInput = document.getElementById('dateRange');
+      const priceSummary = document.getElementById('priceSummary');
+      const nightCountEl = document.getElementById('nightCount');
+      const totalPriceEl = document.getElementById('totalPrice');
+      const guestDetails = document.getElementById('guestDetails');
+      const bookingForm = document.getElementById('bookingForm');
+      const btnWhatsapp = document.getElementById('btnWhatsapp');
+      const btnEmail = document.getElementById('btnEmail');
+      const langBtns = document.querySelectorAll('.lang-btn');
+
+      let flatpickrInstance;
+      let selectedDates = [];
+
+      // Language Switcher Logic
+      langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          langBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentLang = btn.getAttribute('data-lang');
+          applyTranslations(currentLang);
+          updateFlatpickrLang(currentLang);
+        });
+      });
+
+      function applyTranslations(lang) {
+        const dict = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) el.innerText = dict[key];
+        });
+
+        document.getElementById('dateRange').placeholder = dict.modalDatesPlaceholder;
+        document.getElementById('guestName').placeholder = dict.phName;
+        document.getElementById('guestPhone').placeholder = dict.phPhone;
+        document.getElementById('guestEmail').placeholder = dict.phEmail;
+
+        if(selectedDates.length === 2 && nightCountEl.innerText !== "0") {
+          calculatePrice(selectedDates);
+        }
+      }
+
+      function updateFlatpickrLang(lang) {
+        let fLang = 'pt';
+        if(lang === 'fr') fLang = 'fr';
+        if(lang === 'de') fLang = 'de';
+        if(lang === 'en') fLang = 'en';
+        if(lang === 'es') fLang = 'es';
+
+        flatpickrInstance.set("locale", fLang === 'en' ? "default" : fLang);
+      }
+
+      // Open modal
+      document.querySelectorAll('[data-open-booking="true"]').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          // Reset success state when opening
+          document.getElementById('bookingSuccess').style.display = 'none';
+          bookingForm.style.display = 'block';
+          toggleModal(true);
+        });
+      });
+
+      // Close handlers
+      closeModalBtn.addEventListener('click', () => toggleModal(false));
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) toggleModal(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleModal(false);
+      });
+
+      function toggleModal(show){
+        if(show){
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden','false');
+          document.body.style.overflow = 'hidden';
+        } else {
+          modal.classList.remove('open');
+          modal.setAttribute('aria-hidden','true');
+          document.body.style.overflow = '';
+        }
+      }
+
+      function parseDateStr(str) {
+        if (!str) return null;
+        str = str.replace(/"/g, '').trim(); // Remove quotes if CSV exports them
+        if (str.includes('/')) {
+            const parts = str.split('/');
+            if(parts.length === 3) {
+                const d = parseInt(parts[0], 10);
+                const m = parseInt(parts[1], 10) - 1;
+                const y = parseInt(parts[2].trim(), 10);
+                return new Date(y, m, d);
+            }
+        }
+        const ptMonths = { 'janeiro': 0, 'fevereiro': 1, 'março': 2, 'marco': 2, 'abril': 3, 'maio': 4, 'junho': 5, 'julho': 6, 'agosto': 7, 'setembro': 8, 'outubro': 9, 'novembro': 10, 'dezembro': 11 };
+        const parts = str.toLowerCase().split(' de ');
+        if (parts.length === 3) {
+            const d = parseInt(parts[0], 10);
+            const mVal = ptMonths[parts[1].trim()];
+            const y = parseInt(parts[2], 10);
+            if (!isNaN(d) && mVal !== undefined && !isNaN(y)) {
+                return new Date(y, mVal, d);
+            }
+        }
+        return null;
+      }
+
+      async function fetchBlockedDates() {
+        if (!GOOGLE_SHEETS_CSV_URL) return [];
+        try {
+          const response = await fetch(GOOGLE_SHEETS_CSV_URL + '&t=' + new Date().getTime());
+          const data = await response.text();
+          const rows = data.split(/\r?\n/).map(row => row.split(',').map(cell => cell.trim()));
+          const blocked = [];
+          for (let i = 1; i < rows.length; i++) {
+            if (rows[i].length >= 2 && rows[i][0] && rows[i][1]) {
+              const d1 = parseDateStr(rows[i][0]);
+              const d2 = parseDateStr(rows[i][1]);
+              if (d1 && d2) blocked.push({ from: d1, to: d2 });
+            }
+          }
+          console.log("Datas bloqueadas carregadas do Sheets:", blocked);
+          return blocked;
+        } catch (error) {
+          console.error("Erro a carregar calendário do Sheets:", error);
+          return [];
+        }
+      }
+
+      async function init(){
+        let blocked = await fetchBlockedDates();
+        
+        flatpickrInstance = flatpickr(dateInput, {
+          mode: "range",
+          dateFormat: "d/m/Y",
+          locale: "pt",
+          minDate: "today",
+          disable: blocked,
+          onChange: (dates) => {
+            selectedDates = dates;
+            calculatePrice(dates);
+          },
+          onDayCreate: function(dObj, dStr, fp, dayElem) {
+            const date = dayElem.dateObj;
+            if (!date) return;
+            if (dayElem.classList.contains('prevMonthDay') || dayElem.classList.contains('nextMonthDay')) return;
+            const key = date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2,'0') + '-' + String(date.getDate()).padStart(2,'0');
+            const price = PRICE_MAP[key];
+            if (price !== undefined) {
+              const priceEl = document.createElement('span');
+              priceEl.className = 'day-price';
+              priceEl.textContent = price + '€';
+              dayElem.appendChild(priceEl);
+            }
+          }
+        });
+      }
+
+      // Night-by-night rate — usa PRICE_MAP do Booking; fallback por época
+      function getNightlyRate(date) {
+        const key = date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2,'0') + '-' + String(date.getDate()).padStart(2,'0');
+        if (PRICE_MAP[key] !== undefined) return PRICE_MAP[key];
+        const month = date.getMonth();
+        if (month >= 6 && month <= 7) return PRICES.high;
+        if (month === 5 || month === 8) return PRICES.mid;
+        return PRICES.low;
+      }
+
+      function calculatePrice(dates){
+        const waitText = document.getElementById('priceWaitingText');
+        const calcBox = document.getElementById('priceCalcBox');
+        const originalPriceDisplay = document.getElementById('originalPriceDisplay');
+        const discountBadge = document.getElementById('discountBadge');
+        if(waitText) waitText.style.display = 'block';
+        if(calcBox) calcBox.style.display = 'none';
+        guestDetails.style.display = 'none';
+        if (!dates || dates.length !== 2) return;
+
+        const start = dates[0];
+        const end = dates[1];
+        const nights = Math.round((end - start) / (1000*60*60*24));
+        if (nights < 2) {
+          alert(translations[currentLang].alertMin);
+          flatpickrInstance.clear();
+          return;
+        }
+
+        // Night-by-night calculation
+        let totalNightly = 0;
+        for (let i = 0; i < nights; i++) {
+          const nightDate = new Date(start);
+          nightDate.setDate(nightDate.getDate() + i);
+          totalNightly += getNightlyRate(nightDate);
+        }
+
+        const totalBeforeDiscount = totalNightly + CLEANING_FEE;
+        const discountAmount = Math.round(totalBeforeDiscount * DISCOUNT);
+        const totalAfterDiscount = totalBeforeDiscount - discountAmount;
+
+        nightCountEl.innerText = nights;
+        totalPriceEl.innerText = totalAfterDiscount + '\u20AC';
+
+        if (originalPriceDisplay) {
+          originalPriceDisplay.innerText = totalBeforeDiscount + '\u20AC';
+          originalPriceDisplay.style.display = 'inline-block';
+        }
+        if (discountBadge) discountBadge.style.display = 'inline-block';
+
+        if(waitText) waitText.style.display = 'none';
+        if(calcBox) calcBox.style.display = 'block';
+        guestDetails.style.display = 'block';
+
+        bookingForm.dataset.total = totalAfterDiscount;
+      }
+
+      function showBookingSuccess() {
+        const successEl = document.getElementById('bookingSuccess');
+        if (successEl && bookingForm) {
+          bookingForm.style.display = 'none';
+          successEl.style.display = 'block';
+          setTimeout(() => {
+            successEl.style.display = 'none';
+            bookingForm.style.display = 'block';
+          }, 5000);
+        }
+      }
+
+      function getBookingDetails() {
+        if (!selectedDates || selectedDates.length !== 2) {
+          alert(translations[currentLang].alertDate);
+          return null;
+        }
+        if(!bookingForm.checkValidity()) {
+          bookingForm.reportValidity();
+          return null;
+        }
+
+        const formData = new FormData(bookingForm);
+        const checkIn = flatpickrInstance.formatDate(selectedDates[0], 'd/m/Y');
+        const checkOut = flatpickrInstance.formatDate(selectedDates[1], 'd/m/Y');
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const phone = formData.get('phone');
+        const total = bookingForm.dataset.total || 0;
+        const nights = nightCountEl.innerText;
+
+        const msgIntroEN = `Hi Ana! \uD83D\uDC4B I would like to request a booking for the *Nazaré Apartment*.`;
+        const msgIntroFR = `Bonjour Ana! \uD83D\uDC4B Je souhaite faire une demande de réservation pour l'*Appartement Nazaré*.`;
+        const msgIntroDE = `Hallo Ana! \uD83D\uDC4B Ich möchte eine Buchungsanfrage für das *Nazaré-Apartment* stellen.`;
+        const msgIntroPT = `Olá Ana! \uD83D\uDC4B Gostaria de pedir uma reserva para o *Apartamento Nazaré*.`;
+        const msgIntroES = `¡Hola Ana! \uD83D\uDC4B Me gustaría solicitar una reserva para el *Apartamento Nazaré*.`;
+
+        let intro = msgIntroPT;
+        let pRes = "\uD83D\uDCC5 *Detalhes da Reserva:*", pCheckIn = "\u27A1\uFE0F Check-in", pCheckOut = "\u2B05\uFE0F Check-out", pNights = "\uD83C\uDF19 Noites", pPrice="\uD83D\uDCB6 Valor Total";
+        let pPer = "\uD83D\uDC64 *Os meus dados:*", pName="Nome", pEmail="\uD83D\uDCE7 Email", pPhone="\uD83D\uDCDE Telemóvel";
+        let waitMsg = "Aguardo a sua confirmação. Muito obrigado! \u2728";
+
+        if(currentLang === 'en') { intro = msgIntroEN; pRes = "\uD83D\uDCC5 *Booking Details:*"; pCheckIn = "\u27A1\uFE0F Check-in"; pCheckOut = "\u2B05\uFE0F Check-out"; pNights="\uD83C\uDF19 Nights"; pPrice="\uD83D\uDCB6 Total Price"; pPer = "\uD83D\uDC64 *My Details:*"; pName="Name"; pEmail="\uD83D\uDCE7 Email"; pPhone="\uD83D\uDCDE Phone"; waitMsg="Awaiting your confirmation. Thanks! \u2728"; }
+        if(currentLang === 'fr') { intro = msgIntroFR; pRes = "\uD83D\uDCC5 *Détails Réservation:*"; pCheckIn = "\u27A1\uFE0F Arrivée"; pCheckOut = "\u2B05\uFE0F Départ"; pNights="\uD83C\uDF19 Nuits"; pPrice="\uD83D\uDCB6 Prix Total"; pPer = "\uD83D\uDC64 *Mes Coordonnées:*"; pName="Nom"; pEmail="\uD83D\uDCE7 Email"; pPhone="\uD83D\uDCDE Tél"; waitMsg="En attente de votre confirmation. Merci ! \u2728"; }
+        if(currentLang === 'de') { intro = msgIntroDE; pRes = "\uD83D\uDCC5 *Buchungsdetails:*"; pCheckIn = "\u27A1\uFE0F Anreise"; pCheckOut = "\u2B05\uFE0F Abreise"; pNights="\uD83C\uDF19 Nächte"; pPrice="\uD83D\uDCB6 Gesamtpreis"; pPer = "\uD83D\uDC64 *Meine Daten:*"; pName="Name"; pEmail="\uD83D\uDCE7 E-Mail"; pPhone="\uD83D\uDCDE Telefon"; waitMsg="Ich warte auf Ihre Bestätigung. Danke! \u2728"; }
+        if(currentLang === 'es') { intro = msgIntroES; pRes = "\uD83D\uDCC5 *Detalles de Reserva:*"; pCheckIn = "\u27A1\uFE0F Llegada"; pCheckOut = "\u2B05\uFE0F Salida"; pNights="\uD83C\uDF19 Noches"; pPrice="\uD83D\uDCB6 Precio Total"; pPer = "\uD83D\uDC64 *Mis Datos:*"; pName="Nombre"; pEmail="\uD83D\uDCE7 Correo"; pPhone="\uD83D\uDCDE Teléfono"; waitMsg="Espero su confirmación. ¡Gracias! \u2728"; }
+
+        const message = `${intro}
+
+${pRes}
+• *${pCheckIn}:* ${checkIn}
+• *${pCheckOut}:* ${checkOut}
+• *${pNights}:* ${nights}
+• *${pPrice}:* ${total}\u20AC
+
+${pPer}
+• *${pName}:* ${name}
+• *${pPhone}:* ${phone}
+• *${pEmail}:* ${email}
+
+${waitMsg}`;
+
+        return { message, email, name };
+      }
+
+      btnWhatsapp.addEventListener('click', () => {
+        const details = getBookingDetails();
+        if(!details) return;
+        const textEncoded = encodeURIComponent(details.message);
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${textEncoded}`;
+        window.open(waUrl, '_blank');
+        showBookingSuccess();
+      });
+
+      btnEmail.addEventListener('click', () => {
+        const details = getBookingDetails();
+        if(!details) return;
+
+        let subjectText = "Pedido de Reserva - ";
+        if(currentLang === 'en') subjectText = "Booking Request - ";
+        if(currentLang === 'fr') subjectText = "Demande de Réservation - ";
+        if(currentLang === 'de') subjectText = "Buchungsanfrage - ";
+        if(currentLang === 'es') subjectText = "Solicitud de Reserva - ";
+
+        const subject = encodeURIComponent(`${subjectText}${details.name}`);
+        const body = encodeURIComponent(details.message);
+        const mailUrl = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+        window.location.href = mailUrl;
+        setTimeout(() => showBookingSuccess(), 500);
+      });
+
+      // Gallery scroll dots
+      const gallerySlider = document.getElementById('gallerySlider');
+      const galleryDots = document.querySelectorAll('.gallery-dot');
+
+      if (gallerySlider && galleryDots.length) {
+        gallerySlider.addEventListener('scroll', () => {
+          const scrollLeft = gallerySlider.scrollLeft;
+          const itemWidth = gallerySlider.querySelector('.gallery-item').offsetWidth + 12;
+          const activeIndex = Math.round(scrollLeft / itemWidth);
+          galleryDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+          });
+        });
+
+        galleryDots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            const index = parseInt(dot.dataset.index);
+            const itemWidth = gallerySlider.querySelector('.gallery-item').offsetWidth + 12;
+            gallerySlider.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
+          });
+        });
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
