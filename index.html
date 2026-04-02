@@ -909,7 +909,9 @@
         }
       };
 
-      let currentLang = 'pt';
+      const browserLang = (navigator.language || navigator.userLanguage || 'pt').slice(0,2).toLowerCase();
+      const supportedLangs = ['pt','en','fr','de','es'];
+      let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
 
       // Elements
       const modal = document.getElementById('bookingModal');
@@ -1257,6 +1259,12 @@ ${waitMsg}`;
           gallerySlider.scrollTo({ left: next * itemWidth, behavior: 'smooth' });
         });
       }
+
+      // Apply detected language on load
+      langBtns.forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-lang') === currentLang);
+      });
+      applyTranslations(currentLang);
 
       init();
     })();
