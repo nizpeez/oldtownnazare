@@ -10,7 +10,7 @@
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://nazarehome.pt/" />
   <meta property="og:title"       content="Apartamento na Nazaré · 150m da Praia · Reserva Direta" />
-  <meta property="og:description" content="T1 com check-in automático, vista de mar e sem taxas de plataforma. Reserve direto e poupe." />
+  <meta property="og:description" content="T1 com check-in presencial, vista de mar e sem taxas de plataforma. Reserve direto e poupe." />
   <meta property="og:image"       content="https://nazarehome.pt/og-image.jpg" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
@@ -19,7 +19,7 @@
   <!-- Twitter / iMessage fallback -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="Apartamento na Nazaré · 150m da Praia · Reserva Direta" />
-  <meta name="twitter:description" content="T1 com check-in automático, vista de mar e sem taxas de plataforma. Reserve direto e poupe." />
+  <meta name="twitter:description" content="T1 com check-in presencial, vista de mar e sem taxas de plataforma. Reserve direto e poupe." />
   <meta name="twitter:image"       content="https://nazarehome.pt/og-image.jpg" />
 
   <!-- Flatpickr CSS & Theme -->
@@ -101,6 +101,17 @@
     }
     .gallery-dot.active { background: var(--secondary); width: 24px; border-radius: 4px; }
 
+    /* --- DESKTOP GALLERY FIX --- */
+    @media (min-width: 600px) {
+      .gallery-slider {
+        max-width: 500px;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .gallery-item { flex: 0 0 100%; }
+    }
+
     /* --- BUTTONS --- */
     .btn {
       display: flex; justify-content: center; align-items: center; gap: 8px;
@@ -137,9 +148,9 @@
     /* --- PRICING --- */
     .pricing-card { background: var(--surface); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); margin-bottom: 24px; border: 2px solid #e2e8f0; }
     .pricing-card h2 { font-size: 1.2rem; margin-bottom: 16px; color: var(--primary); text-transform: uppercase; font-weight: 800;}
-    .price-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #cbd5e1; font-size: 1.05rem; font-weight: 500;}
+    .price-row { display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px dashed #cbd5e1; font-size: 1rem; font-weight: 500;}
     .price-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .price { color: var(--accent); font-weight: 800; font-size: 1.2rem; }
+    .price { color: var(--accent); font-weight: 800; font-size: 1.15rem; }
 
     /* --- HOUSE RULES --- */
     .rules-card {
@@ -168,16 +179,16 @@
     .host-info h3 { font-size: 1rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
     .host-info p { font-size: 0.9rem; color: var(--text-light); line-height: 1.4; }
 
-    /* --- LOCATION SIMPLE --- */
-    .location-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius); padding: 24px; margin-bottom: 30px; }
-    .location-card h3 { color: #166534; font-size: 1.25rem; margin-bottom: 8px; font-weight: 900; letter-spacing: -0.5px;}
-    .location-intro { color: #15803d; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; font-weight: 500;}
-    .loc-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.95rem; line-height: 1.4;}
-    .loc-item svg { width: 22px; height: 22px; fill: #22c55e; flex-shrink: 0; margin-top: 2px;}
-    .loc-item strong { display: block; font-weight: 800; color: #14532d; }
-    .loc-item small { display: block; margin-top: 2px; color: #15803d; opacity: 0.9; font-size: 0.85rem; font-weight: 500;}
-    .location-btn { margin-top: 10px; border-color: #22c55e; color: #166534; background: white; font-weight: 700; width: 100%;}
-    .location-btn:hover { background: #dcfce7; }
+    /* --- LOCATION --- */
+    .location-card { background: var(--surface); border: 1px solid #e2e8f0; border-radius: var(--radius); padding: 22px; margin-bottom: 24px; }
+    .location-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 16px; font-weight: 800; }
+    .loc-list { list-style: none; }
+    .loc-list li { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .loc-list li:last-child { border-bottom: none; }
+    .loc-list .loc-icon { font-size: 1.2rem; flex-shrink: 0; width: 28px; text-align: center; }
+    .loc-list .loc-dist { margin-left: auto; color: var(--text-light); font-size: 0.85rem; font-weight: 500; white-space: nowrap; }
+    .location-btn { margin-top: 14px; border-color: var(--secondary); color: var(--secondary); background: white; font-weight: 700; width: 100%; font-size: 0.95rem; }
+    .location-btn:hover { background: #eff6ff; }
 
     /* --- STICKY CTA --- */
     .sticky-cta {
@@ -373,16 +384,8 @@
         <span data-i18n="featBeach">150m da Praia</span>
       </div>
       <div class="feature">
-        <svg viewBox="0 0 24 24"><path d="M21 10h-8.35C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H13l2 2 2-2 2 2 4-4.04L21 10zM7 15c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>
-        <span data-i18n="featCheckin">Check-in Automático</span>
-      </div>
-      <div class="feature">
-        <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-        <span data-i18n="featWifi">Internet Fibra 500MB</span>
-      </div>
-      <div class="feature">
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V7h-2v2z"/></svg>
-        <span data-i18n="featClean">Limpeza Premium</span>
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span data-i18n="featCheckin">Check-in Presencial</span>
       </div>
     </div>
 
@@ -418,56 +421,33 @@
     <!-- LOCATION CARD -->
     <div class="location-card">
       <h3 data-i18n="locTitle">Localização Central na Nazaré</h3>
-      <p class="location-intro" data-i18n="locIntro">Fique numa zona prática e central, com praia, restaurantes, supermercado e serviços essenciais a curta distância a pé.</p>
-
-      <div class="loc-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/></svg>
-        <span><strong data-i18n="loc1Title">2 minutos a pé (150m) da praia</strong></span>
-      </div>
-
-      <div class="loc-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        <span>
-          <strong data-i18n="loc2Title">Supermercado e comércio local por perto</strong>
-          <small data-i18n="loc2Sub">ideal para compras rápidas e essenciais do dia a dia</small>
-        </span>
-      </div>
-
-      <div class="loc-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C8.13 2 5 5.13 5 9c0 5.25 6.99 13 6.99 13S19 14.25 19 9c0-3.87-3.13-7-7.01-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1-.01 5z"/></svg>
-        <span>
-          <strong data-i18n="loc3Title">Restaurantes, cafés e pastelarias a poucos minutos</strong>
-          <small data-i18n="loc3Sub">perfeito para refeições, pequeno-almoço ou fim de tarde</small>
-        </span>
-      </div>
-
-      <div class="loc-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2V5a2 2 0 0 0-2-2zm0 16H5V8h14v11z"/></svg>
-        <span><strong data-i18n="loc4Title">2 minutos do Mercado Municipal</strong></span>
-      </div>
-
-      <div class="loc-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-9 9c0 1.95.62 3.76 1.69 5.24L3 22l5.93-1.56A8.96 8.96 0 0 0 12 20a9 9 0 1 0 0-18zm4.13 12.38c-.18.5-1.06.95-1.46 1.01-.37.06-.83.09-1.34-.07-.31-.1-.72-.23-1.24-.45-2.18-.94-3.6-3.13-3.71-3.28-.11-.15-.89-1.18-.89-2.25s.56-1.59.76-1.81c.2-.22.43-.28.57-.28.14 0 .29 0 .42.01.13.01.31-.05.49.39.18.45.62 1.54.67 1.65.06.11.09.24.02.39-.07.15-.11.24-.22.37-.11.13-.23.29-.33.39-.11.11-.22.23-.1.46.11.22.5.82 1.08 1.33.74.66 1.36.86 1.58.95.22.09.35.08.48-.05.13-.13.56-.65.71-.87.15-.22.3-.18.5-.11.2.07 1.29.61 1.51.72.22.11.37.17.42.27.05.09.05.54-.13 1.04z"/></svg>
-        <span>
-          <strong data-i18n="loc5Title">Táxis e acessos fáceis nas proximidades</strong>
-          <small data-i18n="loc5Sub">uma opção prática para deslocações locais</small>
-        </span>
-      </div>
-
-      <div class="loc-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 8h-1V6a5 5 0 0 0-10 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-9-2a3 3 0 0 1 6 0v2h-6V6zm3 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
-        <span><strong data-i18n="loc6Title">Farmácia e serviços essenciais por perto</strong></span>
-      </div>
-
-      <div style="margin-top:20px; padding-top:16px; border-top:1px dashed #bbf7d0;">
-        <p style="font-weight:800; color:#166534; margin-bottom:8px; font-size:1rem;" data-i18n="locDistTitle">Distâncias a pé:</p>
-        <ul style="list-style:none; font-size:0.95rem; color:#15803d; font-weight:600;">
-          <li style="margin-bottom:6px;">&#x1F3D6;&#xFE0F; <span data-i18n="locD1">Praia — 150m</span></li>
-          <li style="margin-bottom:6px;">&#x1F6D2; <span data-i18n="locD2">Mercado — 2 min</span></li>
-          <li style="margin-bottom:6px;">&#x1F37D;&#xFE0F; <span data-i18n="locD3">Restaurantes — 2 a 5 min</span></li>
-        </ul>
-      </div>
-
+      <ul class="loc-list">
+        <li>
+          <span class="loc-icon">&#x1F3D6;&#xFE0F;</span>
+          <span data-i18n="loc1Title">Praia</span>
+          <span class="loc-dist" data-i18n="locD1">150m</span>
+        </li>
+        <li>
+          <span class="loc-icon">&#x1F6D2;</span>
+          <span data-i18n="loc2Title">Supermercado</span>
+          <span class="loc-dist" data-i18n="locD2">2 min</span>
+        </li>
+        <li>
+          <span class="loc-icon">&#x1F37D;&#xFE0F;</span>
+          <span data-i18n="loc3Title">Restaurantes e cafés</span>
+          <span class="loc-dist" data-i18n="locD3">2 – 5 min</span>
+        </li>
+        <li>
+          <span class="loc-icon">&#x1F3EA;</span>
+          <span data-i18n="loc4Title">Mercado Municipal</span>
+          <span class="loc-dist" data-i18n="locD4">2 min</span>
+        </li>
+        <li>
+          <span class="loc-icon">&#x1F48A;</span>
+          <span data-i18n="loc5Title">Farmácia</span>
+          <span class="loc-dist" data-i18n="locD5">3 min</span>
+        </li>
+      </ul>
       <a href="https://goo.gl/maps/PLACEHOLDER" target="_blank" class="btn btn-outline location-btn" data-i18n="btnGoogleMaps">
         Ver no Google Maps
       </a>
@@ -604,9 +584,9 @@
         pt: {
           tag: "Reserva Direta Sem Taxas",
           h1Title: "Apartamento T1 na Nazaré, a 150m da praia. Ideal para casal ou família (até 3 hóspedes, inclui sofá-cama).",
-          subtitle: "Conforto total, check-in automático e as melhores férias à tua espera.",
+          subtitle: "Conforto total, check-in presencial e as melhores férias à tua espera.",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Quarto", gallery4: "4/8 - Cozinha", gallery5: "5/8 - WC", gallery6: "6/8 - WC", gallery7: "7/8 - Varanda", gallery8: "8/8 - Varanda",
-          featBeach: "150m da Praia", featCheckin: "Check-in Automático", featWifi: "Internet Fibra 500MB", featClean: "Limpeza Premium",
+          featBeach: "150m da Praia", featCheckin: "Check-in Presencial",
           reviewTitle: "O que dizem os hóspedes",
           airbnbBadge: "no Airbnb (23 avaliações)",
           rev1: '"Excelente localização, a 2 minutos da areia!"', rev2: '"Casa super limpa e check-in automático muito útil."', rev3: '"Tamanho ideal para casal. Adoramos a estadia."',
@@ -623,14 +603,11 @@
           hostName: "Anfitriã: Ana",
           hostBio: "Sou a Ana, adoro receber hóspedes na Nazaré. Conheço a zona como ninguém e estou sempre disponível para ajudar com dicas e recomendações.",
           locTitle: "Localização Central na Nazaré",
-          locIntro: "Fique numa zona prática e central, com praia, restaurantes, supermercado e serviços essenciais a curta distância a pé.",
-          loc1Title: "2 minutos a pé (150m) da praia",
-          loc2Title: "Supermercado e comércio local por perto", loc2Sub: "ideal para compras rápidas e essenciais do dia a dia",
-          loc3Title: "Restaurantes, cafés e pastelarias a poucos minutos", loc3Sub: "perfeito para refeições, pequeno-almoço ou fim de tarde",
-          loc4Title: "2 minutos do Mercado Municipal",
-          loc5Title: "Táxis e acessos fáceis nas proximidades", loc5Sub: "uma opção prática para deslocações locais",
-          loc6Title: "Farmácia e serviços essenciais por perto",
-          locDistTitle: "Distâncias a pé:", locD1: "Praia — 150m", locD2: "Mercado — 2 min", locD3: "Restaurantes — 2 a 5 min",
+          loc1Title: "Praia", locD1: "150m",
+          loc2Title: "Supermercado", locD2: "2 min",
+          loc3Title: "Restaurantes e cafés", locD3: "2 – 5 min",
+          loc4Title: "Mercado Municipal", locD4: "2 min",
+          loc5Title: "Farmácia", locD5: "3 min",
           btnGoogleMaps: "Ver no Google Maps",
           ctaSticky: "Reservar com 5% Desconto",
           modalTitle: "Pedir Reserva", modalSubtitle: "Sem compromisso. Respondemos rápido!",
@@ -649,9 +626,9 @@
         en: {
           tag: "Direct Booking No Fees",
           h1Title: "1-Bedroom Apartment in Nazaré, 150m from the beach. Ideal for couples or families (sofa bed, up to 3 guests).",
-          subtitle: "Total comfort, self check-in, and the best beach holidays awaiting you.",
+          subtitle: "Total comfort, in-person check-in, and the best beach holidays awaiting you.",
           gallery1: "1/8 - Apartment", gallery2: "2/8 - Living Room", gallery3: "3/8 - Bedroom", gallery4: "4/8 - Kitchen", gallery5: "5/8 - Bathroom", gallery6: "6/8 - Bathroom", gallery7: "7/8 - Balcony", gallery8: "8/8 - Balcony",
-          featBeach: "150m from Beach", featCheckin: "Self Check-in", featWifi: "500MB Fiber Internet", featClean: "Premium Cleaning",
+          featBeach: "150m from Beach", featCheckin: "In-Person Check-in",
           reviewTitle: "What our guests say",
           airbnbBadge: "on Airbnb (23 reviews)",
           rev1: '"Excellent location, 2 minutes from the sand!"', rev2: '"Super clean house and very useful self check-in."', rev3: '"Perfect size for a couple. We loved our stay."',
@@ -668,14 +645,11 @@
           hostName: "Host: Ana",
           hostBio: "I'm Ana, I love welcoming guests to Nazaré. I know the area like the back of my hand and I'm always happy to help with tips and recommendations.",
           locTitle: "Central Location in Nazaré",
-          locIntro: "Stay in a practical and central area, with the beach, restaurants, supermarket and essential services within walking distance.",
-          loc1Title: "3-minute walk (150m) to the beach",
-          loc2Title: "Supermarket and local shops nearby", loc2Sub: "ideal for quick grocery runs and daily essentials",
-          loc3Title: "Restaurants, cafes and bakeries within minutes", loc3Sub: "perfect for meals, breakfast or late afternoon snacks",
-          loc4Title: "2 minutes to the Municipal Market",
-          loc5Title: "Taxis and easy access nearby", loc5Sub: "a practical option for local travel",
-          loc6Title: "Pharmacy and essential services close by",
-          locDistTitle: "Walking distances:", locD1: "Beach — 150m", locD2: "Market — 2 min", locD3: "Restaurants — 2 to 5 min",
+          loc1Title: "Beach", locD1: "150m",
+          loc2Title: "Supermarket", locD2: "2 min",
+          loc3Title: "Restaurants & cafés", locD3: "2 – 5 min",
+          loc4Title: "Municipal Market", locD4: "2 min",
+          loc5Title: "Pharmacy", locD5: "3 min",
           btnGoogleMaps: "View on Google Maps",
           ctaSticky: "Book Now (5% Off)",
           modalTitle: "Request Booking", modalSubtitle: "No commitment. We reply incredibly fast!",
@@ -694,9 +668,9 @@
         fr: {
           tag: "Réservation Directe Sans Frais",
           h1Title: "Appartement T1 à Nazaré, à 150m de la plage. Idéal couple ou famille (canapé-lit, jusqu'à 3 pers).",
-          subtitle: "Confort total, arrivée autonome et les meilleures vacances à la plage.",
+          subtitle: "Confort total, accueil en personne et les meilleures vacances à la plage.",
           gallery1: "1/8 - Appartement", gallery2: "2/8 - Salon", gallery3: "3/8 - Chambre", gallery4: "4/8 - Cuisine", gallery5: "5/8 - SdB", gallery6: "6/8 - SdB", gallery7: "7/8 - Balcon", gallery8: "8/8 - Balcon",
-          featBeach: "À 150m de la Plage", featCheckin: "Arrivée Autonome", featWifi: "Internet Fibre 500MB", featClean: "Ménage Premium",
+          featBeach: "À 150m de la Plage", featCheckin: "Accueil en Personne",
           reviewTitle: "Ce que disent nos clients",
           airbnbBadge: "sur Airbnb (23 avis)",
           rev1: '"Excellent emplacement, à 2 minutes du sable!"', rev2: '"Maison super propre et arrivée autonome très utile."', rev3: '"Taille idéale pour un couple. Nous avons adoré."',
@@ -713,14 +687,11 @@
           hostName: "Hôte : Ana",
           hostBio: "Je suis Ana, j'adore accueillir les voyageurs à Nazaré. Je connais la région parfaitement et je suis toujours disponible pour des conseils.",
           locTitle: "Emplacement Central à Nazaré",
-          locIntro: "Séjournez dans un quartier pratique et central: plage, restaurants, supermarché et services essentiels à quelques pas.",
-          loc1Title: "2 minutes à pied (150m) de la plage",
-          loc2Title: "Supermarché et commerces à proximité", loc2Sub: "idéal pour les courses rapides",
-          loc3Title: "Restaurants, cafés et boulangeries à quelques minutes", loc3Sub: "parfait pour les repas ou le petit-déjeuner",
-          loc4Title: "À 2 minutes du Marché Municipal",
-          loc5Title: "Taxis et accès faciles à proximité", loc5Sub: "option pratique pour vos déplacements",
-          loc6Title: "Pharmacie et services essentiels à portée de main",
-          locDistTitle: "Distances à pied :", locD1: "Plage — 150m", locD2: "Marché — 2 min", locD3: "Restaurants — 2 à 5 min",
+          loc1Title: "Plage", locD1: "150m",
+          loc2Title: "Supermarché", locD2: "2 min",
+          loc3Title: "Restaurants et cafés", locD3: "2 – 5 min",
+          loc4Title: "Marché Municipal", locD4: "2 min",
+          loc5Title: "Pharmacie", locD5: "3 min",
           btnGoogleMaps: "Voir sur Google Maps",
           ctaSticky: "Réservez (5% de réduction)",
           modalTitle: "Demande de Réservation", modalSubtitle: "Sans engagement. Réponse très rapide!",
@@ -739,9 +710,9 @@
         de: {
           tag: "Direktbuchung Ohne Gebühren",
           h1Title: "1-Zimmer-Wohnung in Nazaré, 150m vom Strand. Ideal für Paare/Familien (Schlafsofa, bis 3 Gäste).",
-          subtitle: "Voller Komfort, Self-Check-in und der beste Strandurlaub erwartet Sie.",
+          subtitle: "Voller Komfort, persönlicher Check-in und der beste Strandurlaub erwartet Sie.",
           gallery1: "1/8 - Wohnung", gallery2: "2/8 - Wohnzimmer", gallery3: "3/8 - Schlafzimmer", gallery4: "4/8 - Küche", gallery5: "5/8 - Bad", gallery6: "6/8 - Bad", gallery7: "7/8 - Balkon", gallery8: "8/8 - Balkon",
-          featBeach: "150m zum Strand", featCheckin: "Self-Check-in", featWifi: "500MB Glasfaser", featClean: "Premium Reinigung",
+          featBeach: "150m zum Strand", featCheckin: "Persönlicher Check-in",
           reviewTitle: "Was unsere Gäste sagen",
           airbnbBadge: "auf Airbnb (23 Bewertungen)",
           rev1: '"Tolle Lage, 2 Minuten vom Sand entfernt!"', rev2: '"Super sauberes Haus und sehr nützlicher Self-Check-in."', rev3: '"Perfekte Größe für ein Paar. Wir haben es geliebt."',
@@ -758,14 +729,11 @@
           hostName: "Gastgeberin: Ana",
           hostBio: "Ich bin Ana und begrüße Gäste in Nazaré mit Freude. Ich kenne die Gegend bestens und helfe gerne mit Tipps und Empfehlungen.",
           locTitle: "Zentrale Lage in Nazaré",
-          locIntro: "Wohnen Sie praktisch und zentral, mit Strand, Restaurants, Supermarkt und Co. in Gehweite.",
-          loc1Title: "3 Gehminuten (150m) zum Strand",
-          loc2Title: "Supermarkt gleich um die Ecke", loc2Sub: "ideal für den täglichen Einkauf",
-          loc3Title: "Restaurants und Cafés in wenigen Minuten erreichbar", loc3Sub: "perfekt für Frühstück oder Abendessen",
-          loc4Title: "2 Minuten zum städtischen Markt",
-          loc5Title: "Taxis und Transport in der Nähe", loc5Sub: "praktisch für alle Ausflüge",
-          loc6Title: "Apotheke und Dienste in der Nähe",
-          locDistTitle: "Entfernungen zu Fuß:", locD1: "Strand — 150m", locD2: "Markt — 2 Min.", locD3: "Restaurants — 2 bis 5 Min.",
+          loc1Title: "Strand", locD1: "150m",
+          loc2Title: "Supermarkt", locD2: "2 Min.",
+          loc3Title: "Restaurants & Cafés", locD3: "2 – 5 Min.",
+          loc4Title: "Stadtmarkt", locD4: "2 Min.",
+          loc5Title: "Apotheke", locD5: "3 Min.",
           btnGoogleMaps: "Auf Google Maps anzeigen",
           ctaSticky: "Jetzt buchen (5% Rabatt)",
           modalTitle: "Buchung Anfragen", modalSubtitle: "Unverbindlich. Wir antworten sehr schnell!",
@@ -784,9 +752,9 @@
         es: {
           tag: "Reserva Directa Sin Comisiones",
           h1Title: "Apto. en Nazaré, a 150m de la playa. Ideal pareja o familia (sofá cama, máx 3 pax).",
-          subtitle: "Comodidad total, check-in automático y las mejores vacaciones en la playa te esperan.",
+          subtitle: "Comodidad total, check-in presencial y las mejores vacaciones en la playa te esperan.",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Habitación", gallery4: "4/8 - Cocina", gallery5: "5/8 - Baño", gallery6: "6/8 - Baño", gallery7: "7/8 - Balcón", gallery8: "8/8 - Balcón",
-          featBeach: "A 150m de la playa", featCheckin: "Check-in Automático", featWifi: "Internet Fibra 500MB", featClean: "Limpieza Premium",
+          featBeach: "A 150m de la playa", featCheckin: "Check-in Presencial",
           reviewTitle: "Lo que dicen nuestros huéspedes",
           airbnbBadge: "en Airbnb (23 evaluaciones)",
           rev1: '"¡Excelente ubicación, a 2 minutos de la arena!"', rev2: '"Casa súper limpia y check-in automático muy útil."', rev3: '"Tamaño perfecto para una pareja. Nos encantó la estancia."',
@@ -803,14 +771,11 @@
           hostName: "Anfitriona: Ana",
           hostBio: "Soy Ana, me encanta recibir huéspedes en Nazaré. Conozco la zona a la perfección y siempre estoy disponible para ayudar.",
           locTitle: "Ubicación Central en Nazaré",
-          locIntro: "Alójate en una zona práctica y central, con playa, restaurantes, supermercado y servicios a poca distancia a pie.",
-          loc1Title: "A 2 minutos a pie (150m) de la playa",
-          loc2Title: "Supermercado y comercios locales cerca", loc2Sub: "ideal para compras rápidas del día a día",
-          loc3Title: "Restaurantes y cafeterías a pocos minutos", loc3Sub: "perfecto para comidas o desayuno",
-          loc4Title: "A 2 minutos del Mercado Municipal",
-          loc5Title: "Taxis y accesos fáciles cerca", loc5Sub: "una opción práctica para desplazamientos",
-          loc6Title: "Farmacia y servicios esenciales cerca",
-          locDistTitle: "Distancias a pie:", locD1: "Playa — 150m", locD2: "Mercado — 2 min", locD3: "Restaurantes — 2 a 5 min",
+          loc1Title: "Playa", locD1: "150m",
+          loc2Title: "Supermercado", locD2: "2 min",
+          loc3Title: "Restaurantes y cafés", locD3: "2 – 5 min",
+          loc4Title: "Mercado Municipal", locD4: "2 min",
+          loc5Title: "Farmacia", locD5: "3 min",
           btnGoogleMaps: "Ver en Google Maps",
           ctaSticky: "Reservar (5% Descuento)",
           modalTitle: "Solicitar Reserva", modalSubtitle: "Sin compromiso. ¡Respondemos muy rápido!",
