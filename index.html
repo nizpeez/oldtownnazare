@@ -81,7 +81,9 @@
     h1 { font-size: 1.9rem; font-weight: 900; line-height: 1.2; color: var(--primary); margin-bottom: 4px; letter-spacing: -0.5px; }
     h1 em { font-style: normal; color: var(--secondary); }
     h1 small { display: block; font-size: 0.55em; font-weight: 600; color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
-    .subtitle { font-size: 1rem; color: var(--text-light); font-weight: 500; }
+    .subtitle { font-size: 0.95rem; color: var(--text-light); font-weight: 600; margin-top: 6px; }
+    .trust-block { display: flex; justify-content: center; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; font-size: 0.78rem; color: var(--text-light); font-weight: 600; }
+    .trust-sep { color: #cbd5e1; }
     .hero-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .hero-chip { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 20px; padding: 5px 12px; font-size: 0.85rem; font-weight: 700; color: var(--primary); }
 
@@ -365,7 +367,13 @@
     <img src="logo.png" alt="Old Town Nazaré Logo" class="site-logo">
     <div class="header-section">
       <span class="tag" data-i18n="tag">Reserva Direta Sem Taxas</span>
-      <h1 data-i18n="h1Title"><small>Centro Histórico · Nazaré</small>Apartamento T1+1</h1>
+      <h1 data-i18n="h1Title"><small>Alojamento · Centro Histórico · Nazaré</small>Férias na Nazaré<em> com reserva direta</em></h1>
+      <p class="subtitle" data-i18n="subtitle">Até 3 hóspedes · varanda · 150m da praia · desconto direto</p>
+      <div class="trust-block">
+        <span data-i18n="trustAL">🏛 Registo AL nº —</span>
+        <span class="trust-sep">·</span>
+        <span data-i18n="trustBooking">Disponível também no Booking</span>
+      </div>
     </div>
   </div>
 
@@ -682,8 +690,10 @@
       const translations = {
         pt: {
           tag: "Reserva Direta Sem Taxas",
-          h1Title: "<small>Centro Histórico · Nazaré</small>Apartamento T1+1",
-          subtitle: "Conforto total, check-in presencial e as melhores férias à tua espera.",
+          h1Title: "<small>Alojamento · Centro Histórico · Nazaré</small>Férias na Nazaré<em> com reserva direta</em>",
+          subtitle: "Até 3 hóspedes · varanda · 150m da praia · desconto direto",
+          trustAL: "🏛 Registo AL nº —",
+          trustBooking: "Disponível também no Booking",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Quarto", gallery4: "4/8 - Cozinha", gallery5: "5/8 - WC", gallery6: "6/8 - WC", gallery7: "7/8 - Varanda", gallery8: "8/8 - Varanda",
           featBeach: "150m da Praia", featCheckin: "Check-in Presencial", featWifi: "Wi-Fi Gratuito", featKitchen: "Cozinha Equipada", featSofa: "Sofá-cama (T1+1)", featBalcony: "Varanda com Vista",
           reviewTitle: "O que dizem os hóspedes",
@@ -730,8 +740,10 @@
         },
         en: {
           tag: "Direct Booking No Fees",
-          h1Title: "<small>Old Town · Nazaré</small>Apartment T1+1",
-          subtitle: "Total comfort, in-person check-in, and the best beach holidays awaiting you.",
+          h1Title: "<small>Accommodation · Old Town · Nazaré</small>Holidays in Nazaré<em> with direct booking</em>",
+          subtitle: "Up to 3 guests · balcony · 150m from beach · direct discount",
+          trustAL: "🏛 AL Reg. nº —",
+          trustBooking: "Also available on Booking",
           gallery1: "1/8 - Apartment", gallery2: "2/8 - Living Room", gallery3: "3/8 - Bedroom", gallery4: "4/8 - Kitchen", gallery5: "5/8 - Bathroom", gallery6: "6/8 - Bathroom", gallery7: "7/8 - Balcony", gallery8: "8/8 - Balcony",
           featBeach: "150m from Beach", featCheckin: "In-Person Check-in", featWifi: "Free Wi-Fi", featKitchen: "Full Kitchen", featSofa: "Sofa Bed (T1+1)", featBalcony: "Balcony with View",
           reviewTitle: "What our guests say",
@@ -778,8 +790,10 @@
         },
         fr: {
           tag: "Réservation Directe Sans Frais",
-          h1Title: "<small>Centre Historique · Nazaré</small>Appartement T1+1",
-          subtitle: "Confort total, accueil en personne et les meilleures vacances à la plage.",
+          h1Title: "<small>Hébergement · Centre Historique · Nazaré</small>Vacances à Nazaré<em> en réservation directe</em>",
+          subtitle: "Jusqu'à 3 hôtes · balcon · 150m de la plage · remise directe",
+          trustAL: "🏛 Enreg. AL nº —",
+          trustBooking: "Disponible aussi sur Booking",
           gallery1: "1/8 - Appartement", gallery2: "2/8 - Salon", gallery3: "3/8 - Chambre", gallery4: "4/8 - Cuisine", gallery5: "5/8 - SdB", gallery6: "6/8 - SdB", gallery7: "7/8 - Balcon", gallery8: "8/8 - Balcon",
           featBeach: "À 150m de la Plage", featCheckin: "Accueil en Personne", featWifi: "Wi-Fi Gratuit", featKitchen: "Cuisine Équipée", featSofa: "Canapé-lit (T1+1)", featBalcony: "Balcon avec Vue",
           reviewTitle: "Ce que disent nos clients",
@@ -826,8 +840,10 @@
         },
         de: {
           tag: "Direktbuchung Ohne Gebühren",
-          h1Title: "<small>Altstadt · Nazaré</small>Apartment T1+1",
-          subtitle: "Voller Komfort, persönlicher Check-in und der beste Strandurlaub erwartet Sie.",
+          h1Title: "<small>Unterkunft · Altstadt · Nazaré</small>Urlaub in Nazaré<em> mit Direktbuchung</em>",
+          subtitle: "Bis 3 Gäste · Balkon · 150m vom Strand · Direktrabatt",
+          trustAL: "🏛 AL-Reg. Nr. —",
+          trustBooking: "Auch auf Booking verfügbar",
           gallery1: "1/8 - Wohnung", gallery2: "2/8 - Wohnzimmer", gallery3: "3/8 - Schlafzimmer", gallery4: "4/8 - Küche", gallery5: "5/8 - Bad", gallery6: "6/8 - Bad", gallery7: "7/8 - Balkon", gallery8: "8/8 - Balkon",
           featBeach: "150m zum Strand", featCheckin: "Persönlicher Check-in", featWifi: "Kostenloses WLAN", featKitchen: "Ausgestattete Küche", featSofa: "Schlafsofa (T1+1)", featBalcony: "Balkon mit Aussicht",
           reviewTitle: "Was unsere Gäste sagen",
@@ -874,8 +890,10 @@
         },
         es: {
           tag: "Reserva Directa Sin Comisiones",
-          h1Title: "<small>Casco Histórico · Nazaré</small>Apartamento T1+1",
-          subtitle: "Comodidad total, check-in presencial y las mejores vacaciones en la playa te esperan.",
+          h1Title: "<small>Alojamiento · Casco Histórico · Nazaré</small>Vacaciones en Nazaré<em> con reserva directa</em>",
+          subtitle: "Hasta 3 huéspedes · balcón · 150m de la playa · descuento directo",
+          trustAL: "🏛 Reg. AL nº —",
+          trustBooking: "También disponible en Booking",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Habitación", gallery4: "4/8 - Cocina", gallery5: "5/8 - Baño", gallery6: "6/8 - Baño", gallery7: "7/8 - Balcón", gallery8: "8/8 - Balcón",
           featBeach: "A 150m de la playa", featCheckin: "Check-in Presencial", featWifi: "Wi-Fi Gratuito", featKitchen: "Cocina Equipada", featSofa: "Sofá cama (T1+1)", featBalcony: "Balcón con Vistas",
           reviewTitle: "Lo que dicen nuestros huéspedes",
