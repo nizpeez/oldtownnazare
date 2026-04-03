@@ -145,19 +145,27 @@
     @media (min-width: 1024px) {
       body { padding-bottom: 0; }
 
-      .lang-selector { max-width: 1200px; padding: 16px 40px; }
+      /* 1. Lang selector — compacto, canto superior direito */
+      .lang-selector {
+        max-width: 1200px;
+        padding: 10px 40px;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+      .lang-btn { flex: 0 0 auto; padding: 5px 10px; font-size: 1.1rem; }
 
+      /* Grid principal */
       .desktop-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         max-width: 1200px;
         margin: 0 auto;
-        gap: 0 48px;
+        gap: 0 40px;
         align-items: start;
         padding: 0 40px;
       }
 
-      /* Left column — sticky gallery */
+      /* 2. Left column — sticky + left-aligned */
       .desktop-left {
         position: sticky;
         top: 24px;
@@ -167,7 +175,10 @@
         width: 100%;
         padding: 16px 0 12px;
       }
-      .desktop-left .site-logo { margin-bottom: 12px; }
+      .desktop-left .header-section { text-align: left; }
+      .desktop-left .site-logo { margin: 0 0 12px 0; }
+      .desktop-left .hero-chips { justify-content: flex-start; }
+      .desktop-left .trust-block { justify-content: flex-start; }
       .desktop-left .gallery-wrapper {
         max-width: 100%;
         margin: 0;
@@ -184,8 +195,9 @@
         border-radius: var(--radius);
       }
       .desktop-left .gallery-item img { height: 440px; }
+      .desktop-left .gallery-dots { justify-content: flex-start; padding-left: 4px; }
 
-      /* Right column */
+      /* 3. Right column — respiro uniforme */
       .desktop-right {
         padding-top: 24px;
       }
@@ -195,17 +207,17 @@
         padding: 0;
       }
 
-      /* Inline booking CTA */
+      /* Inline booking CTA (substitui sticky bar) */
       .inline-booking-card {
         display: block;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
       }
-      .inline-booking-card .btn { border-radius: 14px; padding: 18px 24px; font-size: 1.05rem; }
+      .inline-booking-card .btn { border-radius: 14px; padding: 16px 24px; font-size: 1.05rem; }
 
-      /* Hide mobile sticky bar */
+      /* 4. Esconder sticky CTA no desktop */
       .sticky-cta { display: none; }
 
-      /* Modal centered (not bottom-sheet) on desktop */
+      /* 5. Modal centrado no desktop */
       .modal { align-items: center; }
       .modal-content { border-radius: 24px; max-width: 560px; max-height: 88vh; }
     }
