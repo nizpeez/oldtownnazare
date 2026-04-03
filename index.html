@@ -139,6 +139,77 @@
       .gallery-item { flex: 0 0 100%; }
     }
 
+    /* ─── DESKTOP LAYOUT ─────────────────────────────── */
+    .inline-booking-card { display: none; }
+
+    @media (min-width: 1024px) {
+      body { padding-bottom: 0; }
+
+      .lang-selector { max-width: 1200px; padding: 16px 40px; }
+
+      .desktop-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 0 48px;
+        align-items: start;
+        padding: 0 40px;
+      }
+
+      /* Left column — sticky gallery */
+      .desktop-left {
+        position: sticky;
+        top: 24px;
+      }
+      .desktop-left .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 16px 0 12px;
+      }
+      .desktop-left .site-logo { margin-bottom: 12px; }
+      .desktop-left .gallery-wrapper {
+        max-width: 100%;
+        margin: 0;
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .desktop-left .gallery-slider {
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+      }
+      .desktop-left .gallery-item {
+        flex: 0 0 100%;
+        border-radius: var(--radius);
+      }
+      .desktop-left .gallery-item img { height: 440px; }
+
+      /* Right column */
+      .desktop-right {
+        padding-top: 24px;
+      }
+      .desktop-right .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+      }
+
+      /* Inline booking CTA */
+      .inline-booking-card {
+        display: block;
+        margin-bottom: 20px;
+      }
+      .inline-booking-card .btn { border-radius: 14px; padding: 18px 24px; font-size: 1.05rem; }
+
+      /* Hide mobile sticky bar */
+      .sticky-cta { display: none; }
+
+      /* Modal centered (not bottom-sheet) on desktop */
+      .modal { align-items: center; }
+      .modal-content { border-radius: 24px; max-width: 560px; max-height: 88vh; }
+    }
+
     /* --- BUTTONS --- */
     .btn {
       display: flex; justify-content: center; align-items: center; gap: 8px;
@@ -366,6 +437,10 @@
     <button class="lang-btn" data-lang="es">&#x1F1EA;&#x1F1F8; <span>ES</span></button>
   </div>
 
+  <!-- DESKTOP TWO-COLUMN GRID -->
+  <div class="desktop-grid">
+  <div class="desktop-left">
+
   <!-- HEADER / VALUE PROP -->
   <div class="container" style="padding-top: 0; padding-bottom: 0;">
     <img src="logo.png" alt="Old Town Nazaré Logo" class="site-logo">
@@ -431,6 +506,14 @@
     <button class="gallery-dot" data-index="5"></button>
     <button class="gallery-dot" data-index="6"></button>
     <button class="gallery-dot" data-index="7"></button>
+  </div>
+
+  </div><!-- /desktop-left -->
+  <div class="desktop-right">
+
+  <!-- INLINE BOOKING CTA (desktop only) -->
+  <div class="inline-booking-card">
+    <button class="btn btn-cta" data-open-booking="true" data-i18n="ctaSticky">Reservar com 5% Desconto</button>
   </div>
 
   <div class="container">
@@ -562,6 +645,9 @@
     </div>
 
   </div>
+
+  </div><!-- /desktop-right -->
+  </div><!-- /desktop-grid -->
 
   <!-- STICKY CTA -->
   <div class="sticky-cta">
