@@ -214,8 +214,7 @@
       }
       .inline-booking-card .btn { border-radius: 14px; padding: 16px 24px; font-size: 1.05rem; }
 
-      /* 4. Esconder sticky CTA no desktop */
-      .sticky-cta { display: none; }
+      /* 4. Esconder sticky CTA no desktop — movido para depois da definição base */
 
       /* 5. Modal centrado no desktop */
       .modal { align-items: center; }
@@ -325,6 +324,10 @@
       display: flex; justify-content: center;
     }
     .sticky-cta-content { width: 100%; max-width: 500px; }
+
+    @media (min-width: 1024px) {
+      .sticky-cta { display: none !important; }
+    }
 
     /* --- MODAL --- */
     .modal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 1000; align-items: flex-end; }
