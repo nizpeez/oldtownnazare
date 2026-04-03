@@ -22,6 +22,10 @@
   <meta name="twitter:description" content="T1 com check-in presencial, vista de mar e sem taxas de plataforma. Reserve direto e poupe." />
   <meta name="twitter:image"       content="https://nazarehome.pt/og-image.jpg" />
 
+  <!-- Google Fonts: Raleway sleek heading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap">
+
   <!-- Flatpickr CSS & Theme -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
@@ -78,7 +82,7 @@
     }
     .header-section { margin-bottom: 24px; text-align: center; }
     .tag { display: inline-block; background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-    h1 { font-size: 1.9rem; font-weight: 900; line-height: 1.2; color: var(--primary); margin-bottom: 4px; letter-spacing: -0.5px; }
+    h1 { font-family: 'Raleway', system-ui, sans-serif; font-size: 1.9rem; font-weight: 300; line-height: 1.2; color: var(--primary); margin-bottom: 4px; letter-spacing: 0.5px; }
     h1 em { font-style: normal; color: var(--secondary); }
     h1 small { display: block; font-size: 0.55em; font-weight: 600; color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
     .subtitle { font-size: 0.95rem; color: var(--text-light); font-weight: 600; margin-top: 6px; }
@@ -367,8 +371,8 @@
     <img src="logo.png" alt="Old Town Nazaré Logo" class="site-logo">
     <div class="header-section">
       <span class="tag" data-i18n="tag">Reserva Direta Sem Taxas</span>
-      <h1 data-i18n="h1Title"><small>Alojamento · Centro Histórico · Nazaré</small>Férias na Nazaré · Reserva direta</h1>
-      <div class="hero-chips" data-i18n="subtitle"><span class="hero-chip">👥 Até 3 hóspedes</span><span class="hero-chip">🌿 Varanda</span><span class="hero-chip">🏖 150m da praia</span><span class="hero-chip">🏷 5% desconto direto</span></div>
+      <h1 data-i18n="h1Title"><small>Alojamento · Centro Histórico · Nazaré</small>Férias na Nazaré</h1>
+      <div class="hero-chips" data-i18n="subtitle"><span class="hero-chip">👥 Até 3 hóspedes</span><span class="hero-chip">🏖 150m da praia</span></div>
       <div class="trust-block">
         <span data-i18n="trustAL">🏛 Registo AL nº —</span>
         <span class="trust-sep">·</span>
@@ -690,8 +694,8 @@
       const translations = {
         pt: {
           tag: "Reserva Direta Sem Taxas",
-          h1Title: "<small>Alojamento · Centro Histórico · Nazaré</small>Férias na Nazaré · Reserva direta",
-          subtitle: "<span class='hero-chip'>👥 Até 3 hóspedes</span><span class='hero-chip'>🌿 Varanda</span><span class='hero-chip'>🏖 150m da praia</span><span class='hero-chip'>🏷 5% desconto direto</span>",
+          h1Title: "<small>Alojamento · Centro Histórico · Nazaré</small>Férias na Nazaré",
+          subtitle: "<span class='hero-chip'>👥 Até 3 hóspedes</span><span class='hero-chip'>🏖 150m da praia</span>",
           trustAL: "🏛 Registo AL nº —",
           trustBooking: "Disponível também no Booking",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Quarto", gallery4: "4/8 - Cozinha", gallery5: "5/8 - WC", gallery6: "6/8 - WC", gallery7: "7/8 - Varanda", gallery8: "8/8 - Varanda",
@@ -740,8 +744,8 @@
         },
         en: {
           tag: "Direct Booking No Fees",
-          h1Title: "<small>Accommodation · Old Town · Nazaré</small>Holidays in Nazaré · Direct booking",
-          subtitle: "<span class='hero-chip'>👥 Up to 3 guests</span><span class='hero-chip'>🌿 Balcony</span><span class='hero-chip'>🏖 150m from beach</span><span class='hero-chip'>🏷 5% direct discount</span>",
+          h1Title: "<small>Accommodation · Old Town · Nazaré</small>Holidays in Nazaré",
+          subtitle: "<span class='hero-chip'>👥 Up to 3 guests</span><span class='hero-chip'>🏖 150m from beach</span>",
           trustAL: "🏛 AL Reg. nº —",
           trustBooking: "Also available on Booking",
           gallery1: "1/8 - Apartment", gallery2: "2/8 - Living Room", gallery3: "3/8 - Bedroom", gallery4: "4/8 - Kitchen", gallery5: "5/8 - Bathroom", gallery6: "6/8 - Bathroom", gallery7: "7/8 - Balcony", gallery8: "8/8 - Balcony",
@@ -790,8 +794,8 @@
         },
         fr: {
           tag: "Réservation Directe Sans Frais",
-          h1Title: "<small>Hébergement · Centre Historique · Nazaré</small>Vacances à Nazaré · Réservation directe",
-          subtitle: "<span class='hero-chip'>👥 Jusqu'à 3 hôtes</span><span class='hero-chip'>🌿 Balcon</span><span class='hero-chip'>🏖 150m de la plage</span><span class='hero-chip'>🏷 5% remise directe</span>",
+          h1Title: "<small>Hébergement · Centre Historique · Nazaré</small>Vacances à Nazaré",
+          subtitle: "<span class='hero-chip'>👥 Jusqu'à 3 hôtes</span><span class='hero-chip'>🏖 150m de la plage</span>",
           trustAL: "🏛 Enreg. AL nº —",
           trustBooking: "Disponible aussi sur Booking",
           gallery1: "1/8 - Appartement", gallery2: "2/8 - Salon", gallery3: "3/8 - Chambre", gallery4: "4/8 - Cuisine", gallery5: "5/8 - SdB", gallery6: "6/8 - SdB", gallery7: "7/8 - Balcon", gallery8: "8/8 - Balcon",
@@ -840,8 +844,8 @@
         },
         de: {
           tag: "Direktbuchung Ohne Gebühren",
-          h1Title: "<small>Unterkunft · Altstadt · Nazaré</small>Urlaub in Nazaré · Direktbuchung",
-          subtitle: "<span class='hero-chip'>👥 Bis 3 Gäste</span><span class='hero-chip'>🌿 Balkon</span><span class='hero-chip'>🏖 150m vom Strand</span><span class='hero-chip'>🏷 5% Direktrabatt</span>",
+          h1Title: "<small>Unterkunft · Altstadt · Nazaré</small>Urlaub in Nazaré",
+          subtitle: "<span class='hero-chip'>👥 Bis 3 Gäste</span><span class='hero-chip'>🏖 150m vom Strand</span>",
           trustAL: "🏛 AL-Reg. Nr. —",
           trustBooking: "Auch auf Booking verfügbar",
           gallery1: "1/8 - Wohnung", gallery2: "2/8 - Wohnzimmer", gallery3: "3/8 - Schlafzimmer", gallery4: "4/8 - Küche", gallery5: "5/8 - Bad", gallery6: "6/8 - Bad", gallery7: "7/8 - Balkon", gallery8: "8/8 - Balkon",
@@ -890,8 +894,8 @@
         },
         es: {
           tag: "Reserva Directa Sin Comisiones",
-          h1Title: "<small>Alojamiento · Casco Histórico · Nazaré</small>Vacaciones en Nazaré · Reserva directa",
-          subtitle: "<span class='hero-chip'>👥 Hasta 3 huéspedes</span><span class='hero-chip'>🌿 Balcón</span><span class='hero-chip'>🏖 150m de la playa</span><span class='hero-chip'>🏷 5% descuento directo</span>",
+          h1Title: "<small>Alojamiento · Casco Histórico · Nazaré</small>Vacaciones en Nazaré",
+          subtitle: "<span class='hero-chip'>👥 Hasta 3 huéspedes</span><span class='hero-chip'>🏖 150m de la playa</span>",
           trustAL: "🏛 Reg. AL nº —",
           trustBooking: "También disponible en Booking",
           gallery1: "1/8 - Apartamento", gallery2: "2/8 - Sala", gallery3: "3/8 - Habitación", gallery4: "4/8 - Cocina", gallery5: "5/8 - Baño", gallery6: "6/8 - Baño", gallery7: "7/8 - Balcón", gallery8: "8/8 - Balcón",
